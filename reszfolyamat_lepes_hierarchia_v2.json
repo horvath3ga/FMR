@@ -1,0 +1,132 @@
+{
+    "Felhívás közzététele, megküldése": [
+        "Felhívás kiküldése, közzététele",
+        "Felhívás ajánlattételre",
+        "Felhívás hiánypótlása",
+        "Felhívás küldése, közzététele (ajánlattételi)"
+    ],
+    "Ajánlattételi, részvételi jelentkezési szakasz": [
+        "Ajánlattétel, részvételi jelentkezés",
+        "Helyszíni bejárás",
+        "Kiegészítő tájékoztatás kérés rögzítése",
+        "Kiegészítő tájékoztatás válasz előkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Kiegészítő tájékoztatás válasz megküldése",
+        "Ajánlattevői kérdésre adott válasz megküldése",
+        {
+            "_sub": "Ajánlattételi, részvételi jelentkezési szakasz / Eljárás módosítás"
+        },
+        {
+            "_sub": "Ajánlattételi, részvételi jelentkezési szakasz / Eljárás visszavonás"
+        },
+        "Kiegészítő tájékoztatás válasz megküldése KBSZ-nek"
+    ],
+    "Bírálat (bontás, hiánypótlás)": [
+        "Bontás",
+        "Ajánlatok, jelentkezések bírálata",
+        "Ajánlatok, jelentkezések bírálatának összesítése",
+        "Döntés hiánypótlásról",
+        "Hiánypótlási felhívás elkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Hiánypótlási felhívás megküldése, küldés adminisztrációja",
+        "Hiánypótlások adminisztrációja",
+        "Bírálat KBSZ-nek megküldése",
+        "Hiánypótlási felhívás megküldése KBSZ-nek"
+    ],
+    "Tárgyalás": [
+        "Tárgyalás előkészítése",
+        "Tárgyalás",
+        "Ajánlattételre felhívás előkészítése",
+        {
+            "_sub": "Tárgyalás / Lezáró előterjesztés jóváhagyása"
+        },
+        "Felhívás ajánlattételre",
+        "Ajánlattétel",
+        "Ajánlattevői kérdés rögzítése",
+        "Ajánlattevői kérdésre adott válasz előkészítése",
+        "Bíráló bizottsági jóváhagyás",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Ajánlattevői kérdésre adott válasz megküldése",
+        "Bontás",
+        "Ajánlatok bírálata",
+        "Ajánlattevői kérdésre adott válasz megküldése KBSZ-nek"
+    ],
+    "Tárgyalás / Lezáró előterjesztés jóváhagyása": [
+        "DMS köröztetés indítása",
+        "DMS vélemények, jóváhagyások rögzítése",
+        "Határozathozatal rögzítése"
+    ],
+    "Bírálat, értékelés (1.)": [
+        "Döntési javaslat elkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Igazolások bekérésével kapcsolatos döntés",
+        "Döntési javaslat előkészítése",
+        "Lezáró előterjesztés elkészítése",
+        {
+            "_sub": "Bírálat, értékelés (1.) / Lezáró előterjesztés jóváhagyása"
+        },
+        "Döntési javaslat megküldése KBSZ-nek",
+        "Előterjesztés megküldése KBSZ-nek"
+    ],
+    "Igazolás": [
+        "Felhívás elkészítése az igazolások benyújtására",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Felhívás kiküldése az igazolások benyújtására",
+        "Igazolások benyújtása",
+        "Igazolások ellenőrzése",
+        "Döntés igazolásokkal kapcsolatos hiánypótlásról",
+        "Hiánypótlási felhívás elkészítése",
+        "Hiánypótlási felhívás megküldése",
+        "Hiánypótlások benyújtása",
+        "Hiánypótlások ellenőrzése",
+        "Döntés az igazolások hiánypótlásáról"
+    ],
+    "Bírálat, értékelés (2.)": [
+        "Lezáró előterjesztés elkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        {
+            "_sub": "Bírálat, értékelés (2.) / Lezáró előterjesztés jóváhagyása"
+        },
+        "Előterjesztés megküldése KBSZ-nek"
+    ],
+    "Bírálat, értékelés (2.) / Lezáró előterjesztés jóváhagyása": [
+        "DMS köröztetés indítása",
+        "DMS vélemények, jóváhagyások rögzítése",
+        "Határozathozatal rögzítése"
+    ],
+    "Eljárás eredménye (1)": [
+        "Összegezés, eljárás eredményéről szóló tájékoztatás",
+        "Eredmény rögzítése",
+        "Tájékoztató feladása",
+        "KH hiánypótlási teljesítése"
+    ],
+    "Bírálat, értékelés (1.) / Lezáró előterjesztés jóváhagyása": [
+        "DMS köröztetés indítása",
+        "DMS vélemények, jóváhagyások rögzítése",
+        "Határozathozatal rögzítése"
+    ],
+    "Ajánlattételi, részvételi jelentkezési szakasz / Eljárás módosítás": [
+        "Módosítás előkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Értesítés, hirdetmény feladatás"
+    ],
+    "Részvételi szakasz eredménye": [
+        "Összegezés, részvételi szakasz eredményéről szóló tájékoztatás",
+        "Eredmény rögzítése (részvételi sz.)",
+        "Eredmény rögzítése"
+    ],
+    "Eljárás eredménye (2)": [
+        "Eredmény rögzítése"
+    ],
+    "Ajánlattételi, részvételi jelentkezési szakasz / Eljárás visszavonás": [
+        "Visszavonás előkészítése",
+        "Bírálóbizottsági jóváhagyás",
+        "Beszerzési vezetői jóváhagyás, aláírás",
+        "Értesítés, hirdetmény feladatás"
+    ]
+}
