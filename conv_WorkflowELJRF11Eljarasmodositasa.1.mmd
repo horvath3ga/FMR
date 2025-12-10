@@ -1,0 +1,51 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        652056c1-f58f-438b-a3a3-bee3b43f29f8(("Start")):::start
+        16e45f9a-006d-4991-95bf-96e7163b340d["Technikai start"]:::task
+        2c994c2c-eddc-4342-884a-58a3b0c4f1fa{" "}:::gateway
+        57325726-38d2-499e-b838-555bbd8429df["Módosítás előkészítése"]:::task
+        dc455bf3-ba3f-4104-9cb0-7072068e2dcf["Bírálóbizottsági tagok jóváhagyása"]:::task
+        7d9a87a9-e3fc-4f7e-9558-50e1d17ccad8["Technikai jóváhagyás szükséges"]:::task
+        f8350491-41a5-470c-bb52-b3bc549d6acd{"(X) Beszerzési vezetői jóváhagyás szükséges?"}:::gateway
+        715e3810-b548-40f6-b121-0f3ae7a342f3["Értesítés, hirdetmény feladása "]:::task
+        8e358d25-dda6-4db5-ac1d-7f5534b06e82{" "}:::gateway
+        7e97f179-959c-451a-8c21-61264e4bbdb7{"(X) KBSZ kér módosítást?"}:::gateway
+        39ee1f1e-e3c8-423a-b665-dde147a6b9c9["Módosítás megküldése KBSZ-nek"]:::task
+        fc02c462-5e9d-4127-a29a-6efa0bff41cf{"(X) KBSZ eljárás?"}:::gateway
+        1a777fca-f9a1-4c3c-bbd4-6aa644ce34cf["Technikai KBSZ eljaras"]:::task
+        4f8fb56d-3332-4dc2-b5bb-e68233a55539{" "}:::gateway
+        14d6b705-95ad-451f-a1c5-1e504edac58b["Technikai vég elutasítva"]:::task
+        4339f024-016a-4ba4-b36b-65326d7afaeb["Beszerzési vezetői jóváhagyás (Igen / Nem / Módosítás) - MÁV"]:::task
+        cfe42196-017a-4447-bc64-add448173b10{" "}:::gateway
+        b2ae0c96-868b-44fc-a9f1-71d1c72e364f["Technikai vég"]:::task
+        8e91fda6-0a33-4cdc-9259-3aab4e8d32f6(("Stop")):::stop
+        4339f024-016a-4ba4-b36b-65326d7afaeb -- "Elutasítva" --> 14d6b705-95ad-451f-a1c5-1e504edac58b
+        4339f024-016a-4ba4-b36b-65326d7afaeb -- "Jóváhagyva" --> 4f8fb56d-3332-4dc2-b5bb-e68233a55539
+        4f8fb56d-3332-4dc2-b5bb-e68233a55539 --> 1a777fca-f9a1-4c3c-bbd4-6aa644ce34cf
+        1a777fca-f9a1-4c3c-bbd4-6aa644ce34cf --> fc02c462-5e9d-4127-a29a-6efa0bff41cf
+        fc02c462-5e9d-4127-a29a-6efa0bff41cf -- "Igen" --> 39ee1f1e-e3c8-423a-b665-dde147a6b9c9
+        39ee1f1e-e3c8-423a-b665-dde147a6b9c9 --> 7e97f179-959c-451a-8c21-61264e4bbdb7
+        fc02c462-5e9d-4127-a29a-6efa0bff41cf -- "Nem" --> 8e358d25-dda6-4db5-ac1d-7f5534b06e82
+        7e97f179-959c-451a-8c21-61264e4bbdb7 -- "Nem" --> 8e358d25-dda6-4db5-ac1d-7f5534b06e82
+        8e358d25-dda6-4db5-ac1d-7f5534b06e82 --> 715e3810-b548-40f6-b121-0f3ae7a342f3
+        f8350491-41a5-470c-bb52-b3bc549d6acd -- "Igen" --> 4339f024-016a-4ba4-b36b-65326d7afaeb
+        f8350491-41a5-470c-bb52-b3bc549d6acd -- "Nem" --> 4f8fb56d-3332-4dc2-b5bb-e68233a55539
+        7d9a87a9-e3fc-4f7e-9558-50e1d17ccad8 --> f8350491-41a5-470c-bb52-b3bc549d6acd
+        dc455bf3-ba3f-4104-9cb0-7072068e2dcf -- "Jóváhagyva" --> 7d9a87a9-e3fc-4f7e-9558-50e1d17ccad8
+        57325726-38d2-499e-b838-555bbd8429df --> dc455bf3-ba3f-4104-9cb0-7072068e2dcf
+        4339f024-016a-4ba4-b36b-65326d7afaeb -- "Módosítás szükséges" --> 2c994c2c-eddc-4342-884a-58a3b0c4f1fa
+        7e97f179-959c-451a-8c21-61264e4bbdb7 -- "Igen" --> 2c994c2c-eddc-4342-884a-58a3b0c4f1fa
+        dc455bf3-ba3f-4104-9cb0-7072068e2dcf -- "Módosítás szükséges" --> 2c994c2c-eddc-4342-884a-58a3b0c4f1fa
+        2c994c2c-eddc-4342-884a-58a3b0c4f1fa --> 57325726-38d2-499e-b838-555bbd8429df
+        16e45f9a-006d-4991-95bf-96e7163b340d --> 2c994c2c-eddc-4342-884a-58a3b0c4f1fa
+        652056c1-f58f-438b-a3a3-bee3b43f29f8 --> 16e45f9a-006d-4991-95bf-96e7163b340d
+        715e3810-b548-40f6-b121-0f3ae7a342f3 --> cfe42196-017a-4447-bc64-add448173b10
+        14d6b705-95ad-451f-a1c5-1e504edac58b --> cfe42196-017a-4447-bc64-add448173b10
+        cfe42196-017a-4447-bc64-add448173b10 --> b2ae0c96-868b-44fc-a9f1-71d1c72e364f
+        b2ae0c96-868b-44fc-a9f1-71d1c72e364f --> 8e91fda6-0a33-4cdc-9259-3aab4e8d32f6
+    end

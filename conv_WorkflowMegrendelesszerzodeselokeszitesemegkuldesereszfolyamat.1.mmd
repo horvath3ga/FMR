@@ -1,0 +1,40 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        dba5e4b8-8d05-4170-8c5b-5c1a2e1a35d6{"(X)"}:::gateway
+        0a3eb2bb-47a2-4b00-9fe7-86ab07bd6014{"(X) Jóváhagyás szükséges?"}:::gateway
+        4945b9f8-ec6a-4420-9dbc-bd1a279a0a98(("Stop")):::stop
+        296d9d42-7e2c-4f64-90ba-40a6c048ac70{" "}:::gateway
+        e4d7b3af-1c21-4763-a243-67d6e0e4a306["2. Megrendelés, szerződés megküldése"]:::task
+        c12aa697-fb7a-49c0-9d07-8a906fc2a0c9["1. Megrendelés, szerződés előkészítése"]:::task
+        6313ed9b-a177-4f0f-b64d-2a903d5a2c47(("Start")):::start
+        a9b4e67e-b898-48d5-a9f4-0074577972b7{" "}:::gateway
+        27a7b336-7740-4d32-82ad-5e61a1704264{" "}:::gateway
+        345be61a-88a2-467c-85a1-b51c63d74751["Technikai megrendelés szerződés előkészítés start"]:::task
+        f3932b3a-a1ef-415b-82dd-ab0f5e73b431{" "}:::gateway
+        5f4f1f64-3fd1-4c87-908c-3ae8312d837c{" "}:::gateway
+        071ae27b-4bb5-45c7-9ec7-a56deecb8428["Technikai Beszerzési vezetői jóváhagyás start"]:::task
+        216822b6-3aec-4757-a538-4fe6d8cc9c51["Bírálóbizottsági tagok jóváhagyása"]:::task
+        34bc7828-9cc5-41ac-92fa-8b25933b0bab["Beszerzési vezetői jóváhagyás"]:::task
+        0a3eb2bb-47a2-4b00-9fe7-86ab07bd6014 -- "Nem" --> 296d9d42-7e2c-4f64-90ba-40a6c048ac70
+        296d9d42-7e2c-4f64-90ba-40a6c048ac70 --> e4d7b3af-1c21-4763-a243-67d6e0e4a306
+        e4d7b3af-1c21-4763-a243-67d6e0e4a306 --> 4945b9f8-ec6a-4420-9dbc-bd1a279a0a98
+        c12aa697-fb7a-49c0-9d07-8a906fc2a0c9 --> 0a3eb2bb-47a2-4b00-9fe7-86ab07bd6014
+        6313ed9b-a177-4f0f-b64d-2a903d5a2c47 --> a9b4e67e-b898-48d5-a9f4-0074577972b7
+        27a7b336-7740-4d32-82ad-5e61a1704264 --> a9b4e67e-b898-48d5-a9f4-0074577972b7
+        a9b4e67e-b898-48d5-a9f4-0074577972b7 --> 345be61a-88a2-467c-85a1-b51c63d74751
+        345be61a-88a2-467c-85a1-b51c63d74751 --> c12aa697-fb7a-49c0-9d07-8a906fc2a0c9
+        f3932b3a-a1ef-415b-82dd-ab0f5e73b431 --> 5f4f1f64-3fd1-4c87-908c-3ae8312d837c
+        5f4f1f64-3fd1-4c87-908c-3ae8312d837c --> 296d9d42-7e2c-4f64-90ba-40a6c048ac70
+        f3932b3a-a1ef-415b-82dd-ab0f5e73b431 --> 071ae27b-4bb5-45c7-9ec7-a56deecb8428
+        0a3eb2bb-47a2-4b00-9fe7-86ab07bd6014 -- "Igen" --> 216822b6-3aec-4757-a538-4fe6d8cc9c51
+        216822b6-3aec-4757-a538-4fe6d8cc9c51 -- "Módosítás szükséges" --> 27a7b336-7740-4d32-82ad-5e61a1704264
+        216822b6-3aec-4757-a538-4fe6d8cc9c51 -- "Jóváhagyva" --> f3932b3a-a1ef-415b-82dd-ab0f5e73b431
+        071ae27b-4bb5-45c7-9ec7-a56deecb8428 --> 34bc7828-9cc5-41ac-92fa-8b25933b0bab
+        34bc7828-9cc5-41ac-92fa-8b25933b0bab -- "Technikai beszerzési vezető jóváhagyva" --> 5f4f1f64-3fd1-4c87-908c-3ae8312d837c
+        34bc7828-9cc5-41ac-92fa-8b25933b0bab -- "Technikai beszerzési vezető módosítás szükséges" --> 27a7b336-7740-4d32-82ad-5e61a1704264
+    end

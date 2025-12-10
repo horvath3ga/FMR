@@ -1,0 +1,41 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        5cfe5970-5cbb-4481-b3d3-897ff4ff4551(("Start")):::start
+        b0975314-7a8b-457d-8827-38a83b684c79["Technikai Start"]:::task
+        cdaadb42-6842-4a1a-9dea-b04043384470["235 Eljárás dokumentumok beküldése ÉKM részére "]:::task
+        c0ef1f13-1b8a-4d0f-9f1c-73e40972b7f6{"(X)"}:::gateway
+        f04e1c02-53f6-44f7-887b-693608c1a62f["231 Eljárás dokumentumok előkészítése"]:::task
+        c65fec5f-eb33-4bd1-8b99-c96eaa2801af{" "}:::gateway
+        ac84bdb6-8b6b-4c22-89d3-7bf82861b4e3["236 ÉKM vélemény rögzítése"]:::task
+        5f90dad3-b591-47db-ad73-f658143637d4(("Stop")):::stop
+        c21891b1-2ae3-49c4-9067-c595b2a045da["Technikai end"]:::task
+        81ad8d33-2995-4c42-a99e-4a4be33864db["233 Eljárás dokumentum vélemények konszolidálása "]:::task
+        8a76acc2-75b9-4390-a132-ddc96539d0cf["Technikai véleményezés bevárása"]:::task
+        3103a87f-ca8e-4623-a18c-b70b8e58ea80{" "}:::gateway
+        d0b01edf-e534-4b27-8975-42fdde5a33e7["232 Eljárás előkészítő dokumentumok véleményezése"]:::task
+        b9157b6a-bf2b-4762-a212-198ac3396474{"(X) Építési beruházási törvény alá tartozik a beszerzés?"}:::gateway
+        15c5acfb-136d-4af1-bcd8-91b24fd222bd{" "}:::gateway
+        732486fb-c978-4f6b-9176-481ca54e1634["EPK saját hatáskör dokumentáció összeállítása, véleményezése"]:::task
+        5cfe5970-5cbb-4481-b3d3-897ff4ff4551 --> b0975314-7a8b-457d-8827-38a83b684c79
+        b0975314-7a8b-457d-8827-38a83b684c79 --> c0ef1f13-1b8a-4d0f-9f1c-73e40972b7f6
+        f04e1c02-53f6-44f7-887b-693608c1a62f --> b9157b6a-bf2b-4762-a212-198ac3396474
+        c0ef1f13-1b8a-4d0f-9f1c-73e40972b7f6 --> c65fec5f-eb33-4bd1-8b99-c96eaa2801af
+        c65fec5f-eb33-4bd1-8b99-c96eaa2801af --> f04e1c02-53f6-44f7-887b-693608c1a62f
+        cdaadb42-6842-4a1a-9dea-b04043384470 --> ac84bdb6-8b6b-4c22-89d3-7bf82861b4e3
+        c21891b1-2ae3-49c4-9067-c595b2a045da --> 5f90dad3-b591-47db-ad73-f658143637d4
+        81ad8d33-2995-4c42-a99e-4a4be33864db --> c21891b1-2ae3-49c4-9067-c595b2a045da
+        3103a87f-ca8e-4623-a18c-b70b8e58ea80 --> 8a76acc2-75b9-4390-a132-ddc96539d0cf
+        8a76acc2-75b9-4390-a132-ddc96539d0cf --> 81ad8d33-2995-4c42-a99e-4a4be33864db
+        d0b01edf-e534-4b27-8975-42fdde5a33e7 --> 3103a87f-ca8e-4623-a18c-b70b8e58ea80
+        b9157b6a-bf2b-4762-a212-198ac3396474 -- "Igen" --> cdaadb42-6842-4a1a-9dea-b04043384470
+        b9157b6a-bf2b-4762-a212-198ac3396474 -- "Nem" --> 15c5acfb-136d-4af1-bcd8-91b24fd222bd
+        ac84bdb6-8b6b-4c22-89d3-7bf82861b4e3 --> 15c5acfb-136d-4af1-bcd8-91b24fd222bd
+        15c5acfb-136d-4af1-bcd8-91b24fd222bd --> d0b01edf-e534-4b27-8975-42fdde5a33e7
+        c0ef1f13-1b8a-4d0f-9f1c-73e40972b7f6 --> 732486fb-c978-4f6b-9176-481ca54e1634
+        732486fb-c978-4f6b-9176-481ca54e1634 -- "317 EPK vélemények/észrevételek rögzítése " --> c65fec5f-eb33-4bd1-8b99-c96eaa2801af
+    end

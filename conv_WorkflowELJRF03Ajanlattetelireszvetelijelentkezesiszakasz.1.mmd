@@ -1,0 +1,72 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        5325e98c-c588-4c92-a8df-844270551b20{" "}:::gateway
+        2d2a25fb-147e-4fc5-9b80-5779ca0fbb4e["Kiegészítő tájékoztatás válasz előkészítése"]:::task
+        0bc77298-2202-4167-a569-b3531fc9fd8d["Kiegészítő tájékoztatás válasz megküldése KBSZ-nek"]:::task
+        c26074b4-dc48-4f2a-800e-f7676e8b9da7{" "}:::gateway
+        67d7117b-21eb-475a-9050-3d7919c5fbac["Kiegészítő tájékoztatás válasz megküldése"]:::task
+        be9bae7a-7874-4eb9-8718-ec11a672ae7c{"(X) KBSZ eljárás?"}:::gateway
+        366070ce-07a6-4110-8d53-3767fde8e236["Bírálóbizottsági tagok jóváhagyása"]:::task
+        9cf98700-b819-4e15-adb2-028b7120b8d5["Technikai BB tag jóváhagyás"]:::task
+        26182d8a-998d-4a37-9e69-2cafbe555c46["Beszerzési vezetői jóváhagyás (Igen / Módosítás) - MÁV"]:::task
+        d07bf15c-5a92-4549-b796-6c93f380efea{"(X) KBSZ eljárás?"}:::gateway
+        db9a2c82-dc23-41a4-ac19-a5e125b38b70["Technikai közreműködés szükséges"]:::task
+        47282036-a1e3-44a5-84e8-dc949a929388{"(X) Közreműködés szükséges?"}:::gateway
+        ba5cefa3-f450-4a13-8d02-6342343c855d["Technikai KBSZ eljárás"]:::task
+        9e9f198c-2850-4d46-8885-633674d44895(("Start")):::start
+        e4550d5a-03ac-4dfe-b1c0-a6c727e76433["Technikai start"]:::task
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8{"(X) További műveletek"}:::gateway
+        59ff9a3d-acf2-4a72-bf79-013717eb1637["Ajánlattétel, részvételi jelentkezés"]:::task
+        349b2f35-3731-42ee-9c8d-c63956d43b33["Kiegészítő tájékoztatás kérés rögzítése"]:::task
+        8be4595a-94cc-4b7a-b757-64f87660cb6a["Technikai vég szakasz lezárása"]:::task
+        11cb7d34-e3f2-4115-b729-b9b53399aff2["Eljárás visszavonása - MÁV"]:::task
+        1bd120d7-2c10-4d5c-a3e9-fb0b762af3bb["Eljárás módosítása - MÁV"]:::task
+        20a5eeff-87d8-46ba-ac7b-81d380d9c7d5(("Stop")):::stop
+        a4ceb51d-befb-47f1-a598-f773b3bdd384["Technikai vég eljárás visszavonás"]:::task
+        f771d0b2-efac-46d6-9795-f502294a7284(("Stop")):::stop
+        2a94d64c-f9bf-457f-830d-564a5be06576{" "}:::gateway
+        0b91110f-a845-4603-b54f-129348ad1c52["Ad-hoc folyamat vége"]:::task
+        29986309-0761-45a8-b1a8-e0806c46195f["Helyszíni bejárás"]:::task
+        c1603c57-fa63-4b81-857e-2f475ecc5007{"(X) KBSZ kér módosítást?"}:::gateway
+        db9a2c82-dc23-41a4-ac19-a5e125b38b70 --> 47282036-a1e3-44a5-84e8-dc949a929388
+        d07bf15c-5a92-4549-b796-6c93f380efea -- "Igen" --> db9a2c82-dc23-41a4-ac19-a5e125b38b70
+        26182d8a-998d-4a37-9e69-2cafbe555c46 -- "Jóváhagyva" --> ba5cefa3-f450-4a13-8d02-6342343c855d
+        9cf98700-b819-4e15-adb2-028b7120b8d5 --> 26182d8a-998d-4a37-9e69-2cafbe555c46
+        366070ce-07a6-4110-8d53-3767fde8e236 -- "Jóváhagyva" --> 9cf98700-b819-4e15-adb2-028b7120b8d5
+        ba5cefa3-f450-4a13-8d02-6342343c855d --> be9bae7a-7874-4eb9-8718-ec11a672ae7c
+        be9bae7a-7874-4eb9-8718-ec11a672ae7c -- "Nem" --> c26074b4-dc48-4f2a-800e-f7676e8b9da7
+        47282036-a1e3-44a5-84e8-dc949a929388 -- "Nem" --> c26074b4-dc48-4f2a-800e-f7676e8b9da7
+        c26074b4-dc48-4f2a-800e-f7676e8b9da7 --> 67d7117b-21eb-475a-9050-3d7919c5fbac
+        be9bae7a-7874-4eb9-8718-ec11a672ae7c -- "Igen" --> 0bc77298-2202-4167-a569-b3531fc9fd8d
+        2d2a25fb-147e-4fc5-9b80-5779ca0fbb4e --> 366070ce-07a6-4110-8d53-3767fde8e236
+        d07bf15c-5a92-4549-b796-6c93f380efea -- "Nem" --> 5325e98c-c588-4c92-a8df-844270551b20
+        26182d8a-998d-4a37-9e69-2cafbe555c46 -- "Módosítás szükséges" --> 5325e98c-c588-4c92-a8df-844270551b20
+        366070ce-07a6-4110-8d53-3767fde8e236 -- "Módosítás szükséges" --> 5325e98c-c588-4c92-a8df-844270551b20
+        47282036-a1e3-44a5-84e8-dc949a929388 -- "Igen" --> 5325e98c-c588-4c92-a8df-844270551b20
+        5325e98c-c588-4c92-a8df-844270551b20 --> 2d2a25fb-147e-4fc5-9b80-5779ca0fbb4e
+        9e9f198c-2850-4d46-8885-633674d44895 --> e4550d5a-03ac-4dfe-b1c0-a6c727e76433
+        e4550d5a-03ac-4dfe-b1c0-a6c727e76433 --> 59ff9a3d-acf2-4a72-bf79-013717eb1637
+        59ff9a3d-acf2-4a72-bf79-013717eb1637 --> f1c72d8e-160f-49dc-9db5-945d71e3b1e8
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8 -- "Kiegészítő tájékoztatás kérés rögzítése" --> 349b2f35-3731-42ee-9c8d-c63956d43b33
+        349b2f35-3731-42ee-9c8d-c63956d43b33 --> d07bf15c-5a92-4549-b796-6c93f380efea
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8 -- "Szakasz lezárása" --> 8be4595a-94cc-4b7a-b757-64f87660cb6a
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8 -- "Eljárás visszavonás" --> 11cb7d34-e3f2-4115-b729-b9b53399aff2
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8 -- "Eljárás módosítás" --> 1bd120d7-2c10-4d5c-a3e9-fb0b762af3bb
+        8be4595a-94cc-4b7a-b757-64f87660cb6a --> 20a5eeff-87d8-46ba-ac7b-81d380d9c7d5
+        11cb7d34-e3f2-4115-b729-b9b53399aff2 -- "Értesítés, hirdetmény feladása" --> a4ceb51d-befb-47f1-a598-f773b3bdd384
+        a4ceb51d-befb-47f1-a598-f773b3bdd384 --> f771d0b2-efac-46d6-9795-f502294a7284
+        1bd120d7-2c10-4d5c-a3e9-fb0b762af3bb -- "Technikai vég" --> 2a94d64c-f9bf-457f-830d-564a5be06576
+        2a94d64c-f9bf-457f-830d-564a5be06576 --> 0b91110f-a845-4603-b54f-129348ad1c52
+        11cb7d34-e3f2-4115-b729-b9b53399aff2 -- "Visszavonás elutasítva" --> 2a94d64c-f9bf-457f-830d-564a5be06576
+        67d7117b-21eb-475a-9050-3d7919c5fbac --> 2a94d64c-f9bf-457f-830d-564a5be06576
+        f1c72d8e-160f-49dc-9db5-945d71e3b1e8 -- "Helyszíni bejárás" --> 29986309-0761-45a8-b1a8-e0806c46195f
+        29986309-0761-45a8-b1a8-e0806c46195f --> 2a94d64c-f9bf-457f-830d-564a5be06576
+        0bc77298-2202-4167-a569-b3531fc9fd8d --> c1603c57-fa63-4b81-857e-2f475ecc5007
+        c1603c57-fa63-4b81-857e-2f475ecc5007 -- "Nem" --> c26074b4-dc48-4f2a-800e-f7676e8b9da7
+        c1603c57-fa63-4b81-857e-2f475ecc5007 -- "Igen" --> 5325e98c-c588-4c92-a8df-844270551b20
+    end

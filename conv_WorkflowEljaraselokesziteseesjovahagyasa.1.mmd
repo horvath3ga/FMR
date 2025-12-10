@@ -1,0 +1,35 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        2ec3880d-8e4c-40c1-96e9-3efb3b882675(("Start")):::start
+        a56c84cf-7a50-4abd-9fdd-d8a22f7562ad["Résztvevők kijelölése"]:::task
+        2f57fda5-1da2-4b3d-94db-d3dd19c60bdd{" "}:::gateway
+        16a16d0e-0ee5-4628-b52e-c8a52535235b["BB ülés"]:::task
+        5e5a2f7f-2281-4c4c-b397-549ba0674bb7{" "}:::gateway
+        62c1e341-5984-428a-999d-df84fedef7c7["Fő folyamat vége"]:::task
+        8f8753db-fb71-460b-bb63-6b2519b85284(("Stop")):::stop
+        78cc7e2b-a1dd-466b-8057-f7ddf04e1072["Dokumentumok módosítása"]:::task
+        d6e52b96-a05d-4a10-b340-6bc9815605d6["Részfolyamat vége"]:::task
+        77ecc73f-a9d1-4a48-a4b8-e921505ae50d(("Stop")):::stop
+        d77103f9-5931-4cf4-8d40-f36f64320594["Dokumentumok előkészítése"]:::task
+        39819c79-d1a4-449d-8a3b-5f420a34768a["Bírálóbizottsági jóváhagyás"]:::task
+        4dfe8ce2-cd25-4ee2-912b-974b26d62394["Beszerzési vezetői jóváhagyás (Igen / Nem / Módosítás) - MÁV"]:::task
+        2ec3880d-8e4c-40c1-96e9-3efb3b882675 --> a56c84cf-7a50-4abd-9fdd-d8a22f7562ad
+        2f57fda5-1da2-4b3d-94db-d3dd19c60bdd --> 16a16d0e-0ee5-4628-b52e-c8a52535235b
+        62c1e341-5984-428a-999d-df84fedef7c7 --> 8f8753db-fb71-460b-bb63-6b2519b85284
+        5e5a2f7f-2281-4c4c-b397-549ba0674bb7 --> 78cc7e2b-a1dd-466b-8057-f7ddf04e1072
+        78cc7e2b-a1dd-466b-8057-f7ddf04e1072 --> 2f57fda5-1da2-4b3d-94db-d3dd19c60bdd
+        d6e52b96-a05d-4a10-b340-6bc9815605d6 --> 77ecc73f-a9d1-4a48-a4b8-e921505ae50d
+        a56c84cf-7a50-4abd-9fdd-d8a22f7562ad --> d77103f9-5931-4cf4-8d40-f36f64320594
+        d77103f9-5931-4cf4-8d40-f36f64320594 --> 2f57fda5-1da2-4b3d-94db-d3dd19c60bdd
+        16a16d0e-0ee5-4628-b52e-c8a52535235b --> 39819c79-d1a4-449d-8a3b-5f420a34768a
+        39819c79-d1a4-449d-8a3b-5f420a34768a -- "Módosítás szükséges" --> 5e5a2f7f-2281-4c4c-b397-549ba0674bb7
+        39819c79-d1a4-449d-8a3b-5f420a34768a -- "Jóváhagyva" --> 4dfe8ce2-cd25-4ee2-912b-974b26d62394
+        4dfe8ce2-cd25-4ee2-912b-974b26d62394 -- "Jóváhagyva" --> d6e52b96-a05d-4a10-b340-6bc9815605d6
+        4dfe8ce2-cd25-4ee2-912b-974b26d62394 -- "Módosítás szükséges" --> 5e5a2f7f-2281-4c4c-b397-549ba0674bb7
+        4dfe8ce2-cd25-4ee2-912b-974b26d62394 -- "Elutasítva" --> 62c1e341-5984-428a-999d-df84fedef7c7
+    end

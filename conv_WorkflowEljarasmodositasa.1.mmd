@@ -1,0 +1,59 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        68202b9a-3831-4f14-acad-73617fb381dc["Módosítás előkészítése"]:::task
+        960dcca4-96d2-4fc1-a9ef-f2ef52858d9a{" "}:::gateway
+        e3e6814b-1b9f-4cb9-a83d-e459eb7abcbb["Technikai lépés"]:::task
+        6c6db4d2-d01a-41c8-82d0-8a341431b9ea["Értesítés, hirdetmény feladása"]:::task
+        ea5fc2d6-fc00-4b38-92aa-fd2566add890{" "}:::gateway
+        bcfabe27-16d1-4568-a2a9-b90f227d3bd1{" "}:::gateway
+        31c28bdb-5800-4487-98b9-ec0ef241fda5(("Stop")):::stop
+        9de6e2a0-e4d0-4b06-aa20-c34cb440db2c["Technikai vég"]:::task
+        0e5e3048-df62-463a-a6df-62d22509105a{"(X) Döntéshozói jóváhagyás szükséges?"}:::gateway
+        7ff4877d-5892-4715-9ed9-b299b6e27070["Döntéshozói jóváhagyás (Igen / Nem / Módosítás)"]:::task
+        27cadf85-b07b-4c07-a3fa-89a84acb57cd(("Start")):::start
+        dc23379a-b654-4546-a435-e186fcc2f1bd["Technikai lépés"]:::task
+        05b85dd1-c045-4c33-a6d8-332e082e6850["Bírálóbizottsági jóváhagyás - MÁV"]:::task
+        960dcca4-96d2-4fc1-a9ef-f2ef52858d9a --> 68202b9a-3831-4f14-acad-73617fb381dc
+        ea5fc2d6-fc00-4b38-92aa-fd2566add890 --> 6c6db4d2-d01a-41c8-82d0-8a341431b9ea
+        6c6db4d2-d01a-41c8-82d0-8a341431b9ea --> bcfabe27-16d1-4568-a2a9-b90f227d3bd1
+        bcfabe27-16d1-4568-a2a9-b90f227d3bd1 --> 9de6e2a0-e4d0-4b06-aa20-c34cb440db2c
+        9de6e2a0-e4d0-4b06-aa20-c34cb440db2c --> 31c28bdb-5800-4487-98b9-ec0ef241fda5
+        e3e6814b-1b9f-4cb9-a83d-e459eb7abcbb --> 0e5e3048-df62-463a-a6df-62d22509105a
+        0e5e3048-df62-463a-a6df-62d22509105a -- "Nem" --> ea5fc2d6-fc00-4b38-92aa-fd2566add890
+        0e5e3048-df62-463a-a6df-62d22509105a -- "Igen" --> 7ff4877d-5892-4715-9ed9-b299b6e27070
+        7ff4877d-5892-4715-9ed9-b299b6e27070 -- "Elutasítva" --> bcfabe27-16d1-4568-a2a9-b90f227d3bd1
+        7ff4877d-5892-4715-9ed9-b299b6e27070 -- "Módosítás szükséges" --> 960dcca4-96d2-4fc1-a9ef-f2ef52858d9a
+        7ff4877d-5892-4715-9ed9-b299b6e27070 -- "Jóváhagyva" --> ea5fc2d6-fc00-4b38-92aa-fd2566add890
+        27cadf85-b07b-4c07-a3fa-89a84acb57cd --> dc23379a-b654-4546-a435-e186fcc2f1bd
+        dc23379a-b654-4546-a435-e186fcc2f1bd --> 960dcca4-96d2-4fc1-a9ef-f2ef52858d9a
+        68202b9a-3831-4f14-acad-73617fb381dc --> 05b85dd1-c045-4c33-a6d8-332e082e6850
+        05b85dd1-c045-4c33-a6d8-332e082e6850 -- "Módosítás szükséges" --> 960dcca4-96d2-4fc1-a9ef-f2ef52858d9a
+        05b85dd1-c045-4c33-a6d8-332e082e6850 -- "Jóváhagyva" --> e3e6814b-1b9f-4cb9-a83d-e459eb7abcbb
+    end
+    subgraph sg_1 ["Szervezet"]
+    direction LR
+        767c620c-abff-4ce3-9592-f78db86ade33["Elutasítva"]:::task
+        48726900-2d1d-4e6c-b39b-b949bbc6168e{"(X) Jóváhagyva?"}:::gateway
+        0c69b6fa-ccb1-4b5a-93b6-9a5655b5d89c(("Stop")):::stop
+        4945dbe7-db96-47e2-ab76-972b3458de60["Jóváhagyva"]:::task
+        c2450bf1-0057-4970-96f0-9f41ebc6a728(("Stop")):::stop
+        0eb79c12-0baf-49e7-85a9-9980608b1b9b["Módosítás szükséges"]:::task
+        b716b16a-04a4-4653-b4f8-cfae65e48204(("Stop")):::stop
+        d40366c0-f990-45fe-85ba-401caeb0c32a["Technikai lépés"]:::task
+        21585643-e35b-40d5-a36a-c99d113ffa3d(("Start")):::start
+        2accf5ad-aeee-42cb-8b65-8dd09826bbf6["Döntéshozói jóváhagyás (eljárás módosítása) "]:::task
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Nem" --> 767c620c-abff-4ce3-9592-f78db86ade33
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Igen" --> 4945dbe7-db96-47e2-ab76-972b3458de60
+        4945dbe7-db96-47e2-ab76-972b3458de60 --> c2450bf1-0057-4970-96f0-9f41ebc6a728
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Módosítás szükséges" --> 0eb79c12-0baf-49e7-85a9-9980608b1b9b
+        0eb79c12-0baf-49e7-85a9-9980608b1b9b --> 0c69b6fa-ccb1-4b5a-93b6-9a5655b5d89c
+        767c620c-abff-4ce3-9592-f78db86ade33 --> b716b16a-04a4-4653-b4f8-cfae65e48204
+        21585643-e35b-40d5-a36a-c99d113ffa3d --> d40366c0-f990-45fe-85ba-401caeb0c32a
+        d40366c0-f990-45fe-85ba-401caeb0c32a --> 2accf5ad-aeee-42cb-8b65-8dd09826bbf6
+        2accf5ad-aeee-42cb-8b65-8dd09826bbf6 --> 48726900-2d1d-4e6c-b39b-b949bbc6168e
+    end

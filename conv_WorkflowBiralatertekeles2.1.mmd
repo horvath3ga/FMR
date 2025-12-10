@@ -1,0 +1,24 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        8805a03d-455d-4290-8d0f-d4e2a327ee28["Döntési javaslat elkészítése"]:::task
+        43eb955e-7b22-4798-9fb7-0c9f23f2838a{" "}:::gateway
+        1336ae93-3432-45e5-9edb-4d6309aa6370(("Start")):::start
+        2df31c31-525b-4030-90b3-49742047b8e3["Technikai lépés"]:::task
+        e5b84e83-33d6-4c4f-8e13-7f0c0b8a5e8a(("Stop")):::stop
+        cae589dc-ca29-4fc1-acda-adff6a69c9a3["Jóváhagyva"]:::task
+        bd596ba1-b82d-45bc-b0d4-ecf7cc93e386["Bírálóbizottsági jóváhagyás - MÁV"]:::task
+        3ffe0bd8-9ec3-4973-a30d-4ef120f47e5c["Beszerzési vezetői jóváhagyás (Igen / Módosítás) - MÁV"]:::task
+        1336ae93-3432-45e5-9edb-4d6309aa6370 --> 2df31c31-525b-4030-90b3-49742047b8e3
+        2df31c31-525b-4030-90b3-49742047b8e3 --> 43eb955e-7b22-4798-9fb7-0c9f23f2838a
+        43eb955e-7b22-4798-9fb7-0c9f23f2838a --> 8805a03d-455d-4290-8d0f-d4e2a327ee28
+        cae589dc-ca29-4fc1-acda-adff6a69c9a3 --> e5b84e83-33d6-4c4f-8e13-7f0c0b8a5e8a
+        8805a03d-455d-4290-8d0f-d4e2a327ee28 --> bd596ba1-b82d-45bc-b0d4-ecf7cc93e386
+        bd596ba1-b82d-45bc-b0d4-ecf7cc93e386 -- "Módosítás szükséges" --> 43eb955e-7b22-4798-9fb7-0c9f23f2838a
+        bd596ba1-b82d-45bc-b0d4-ecf7cc93e386 -- "Jóváhagyva" --> 3ffe0bd8-9ec3-4973-a30d-4ef120f47e5c
+        3ffe0bd8-9ec3-4973-a30d-4ef120f47e5c -- "Jóváhagyva" --> cae589dc-ca29-4fc1-acda-adff6a69c9a3
+    end

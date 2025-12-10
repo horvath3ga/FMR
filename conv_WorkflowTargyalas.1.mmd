@@ -1,0 +1,50 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        762625ac-2391-4b8e-a6aa-589b22d4501c["Ajánlattételre felhívás előkészítése"]:::task
+        f29590a8-cf19-47d6-b20a-6b4533d4bc7f["Felhívás ajánlattételre"]:::task
+        fa99c0f1-aeff-4855-b797-fe3fcef2b061["Ajánlattétel"]:::task
+        45a6848a-8c45-443c-b33c-09d80e6d9bbe["Bontás"]:::task
+        9d585291-acf7-4014-ab3d-c9147b78afed{" "}:::gateway
+        83cfd98b-e5b0-4efd-a8f4-2f5038ab26c4{"(X) Újabb tárgyalás szükséges?"}:::gateway
+        9be2f89d-4b84-4474-9bbc-4d5b7004c40c["Tárgyalás"]:::task
+        49b0f025-f8e6-4667-bcc9-8b6ee4ccc795{" "}:::gateway
+        6f18945a-ff15-4f24-8b91-52a69f756432["Ajánlatok bírálata"]:::task
+        3101affa-4fe2-4c13-848c-2bed3134676c["Tárgyalás előkészítése"]:::task
+        a68b7b07-729a-4021-8c9d-51b8fba44858{"(X) Lezárható a tárgyalási szakasz?"}:::gateway
+        2ddb4a74-8c56-4ae1-a67d-7cd48eee8619{"(X) Újabb tárgyalás szükséges?"}:::gateway
+        08056f34-7a8c-4766-88f5-52a2aa2dc0d0(("Start")):::start
+        e1b6c3b2-dc58-47de-a0cc-f4a433b5086c["Technikai lépés"]:::task
+        061f4f55-a8cb-45fa-bc40-93f02af502ef["Technikai vég"]:::task
+        18ad3497-5943-44cd-bec9-e2106c64fe5c(("Stop")):::stop
+        ad3372e7-6316-4382-8b4e-5408303143ad{" "}:::gateway
+        fdd83d9a-a35a-4246-8c93-1b0793bc17e3{"(X) Tárgyalás megtartása szükséges?"}:::gateway
+        787d977c-1f2e-42c9-aa1c-fbc1f1569626["Beszerzési vezetői jóváhagyás (Igen / Módosítás) - MÁV"]:::task
+        fa99c0f1-aeff-4855-b797-fe3fcef2b061 --> 45a6848a-8c45-443c-b33c-09d80e6d9bbe
+        f29590a8-cf19-47d6-b20a-6b4533d4bc7f --> fa99c0f1-aeff-4855-b797-fe3fcef2b061
+        83cfd98b-e5b0-4efd-a8f4-2f5038ab26c4 -- "Igen" --> 9d585291-acf7-4014-ab3d-c9147b78afed
+        9d585291-acf7-4014-ab3d-c9147b78afed --> 9be2f89d-4b84-4474-9bbc-4d5b7004c40c
+        9be2f89d-4b84-4474-9bbc-4d5b7004c40c --> 83cfd98b-e5b0-4efd-a8f4-2f5038ab26c4
+        83cfd98b-e5b0-4efd-a8f4-2f5038ab26c4 -- "Nem" --> 49b0f025-f8e6-4667-bcc9-8b6ee4ccc795
+        49b0f025-f8e6-4667-bcc9-8b6ee4ccc795 --> 762625ac-2391-4b8e-a6aa-589b22d4501c
+        45a6848a-8c45-443c-b33c-09d80e6d9bbe --> 6f18945a-ff15-4f24-8b91-52a69f756432
+        6f18945a-ff15-4f24-8b91-52a69f756432 --> a68b7b07-729a-4021-8c9d-51b8fba44858
+        a68b7b07-729a-4021-8c9d-51b8fba44858 -- "Nem" --> 2ddb4a74-8c56-4ae1-a67d-7cd48eee8619
+        2ddb4a74-8c56-4ae1-a67d-7cd48eee8619 -- "Nem" --> 49b0f025-f8e6-4667-bcc9-8b6ee4ccc795
+        2ddb4a74-8c56-4ae1-a67d-7cd48eee8619 -- "Igen" --> 9d585291-acf7-4014-ab3d-c9147b78afed
+        08056f34-7a8c-4766-88f5-52a2aa2dc0d0 --> e1b6c3b2-dc58-47de-a0cc-f4a433b5086c
+        e1b6c3b2-dc58-47de-a0cc-f4a433b5086c --> 3101affa-4fe2-4c13-848c-2bed3134676c
+        a68b7b07-729a-4021-8c9d-51b8fba44858 -- "Igen" --> ad3372e7-6316-4382-8b4e-5408303143ad
+        061f4f55-a8cb-45fa-bc40-93f02af502ef --> 18ad3497-5943-44cd-bec9-e2106c64fe5c
+        ad3372e7-6316-4382-8b4e-5408303143ad --> 061f4f55-a8cb-45fa-bc40-93f02af502ef
+        3101affa-4fe2-4c13-848c-2bed3134676c --> fdd83d9a-a35a-4246-8c93-1b0793bc17e3
+        fdd83d9a-a35a-4246-8c93-1b0793bc17e3 -- "Tárgyalás tartása" --> 9d585291-acf7-4014-ab3d-c9147b78afed
+        fdd83d9a-a35a-4246-8c93-1b0793bc17e3 -- "Írásbeli konzultáció (tárgyalás nélkül)" --> 49b0f025-f8e6-4667-bcc9-8b6ee4ccc795
+        fdd83d9a-a35a-4246-8c93-1b0793bc17e3 -- "Tárgyalás nem szükséges" --> ad3372e7-6316-4382-8b4e-5408303143ad
+        762625ac-2391-4b8e-a6aa-589b22d4501c --> 787d977c-1f2e-42c9-aa1c-fbc1f1569626
+        787d977c-1f2e-42c9-aa1c-fbc1f1569626 -- "Jóváhagyva" --> f29590a8-cf19-47d6-b20a-6b4533d4bc7f
+    end

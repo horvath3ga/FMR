@@ -1,0 +1,30 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        0a0127b5-2206-4749-9acf-7bb197e05dae{"(+)"}:::gateway
+        3c6dcc6a-8bed-4052-8b20-79f3800591cd(("Start")):::start
+        990623df-3c3f-44ed-8d32-60bafd076c49["Technikai start"]:::task
+        38d2efe9-d01d-4e4e-8755-9abdd72dd132{" "}:::gateway
+        b51ff7d0-474e-4287-8402-f0bbc52da780["252 Beszerzési igény beküldése a KEF részére"]:::task
+        e71a5c26-f980-46fd-a992-1df426ac5369["254 KEF döntés hiánypótlás "]:::task
+        b7dc10c3-6b4c-4bc8-80d9-2ab453a50ce7["Tecchnikai nem"]:::task
+        13217e2e-1697-43ad-b772-285e02f55373["253 KEF döntés rögzítése"]:::task
+        4158599d-dcef-4c48-b908-b2aeb955eb6b["Technikai igen"]:::task
+        aaa91151-c91c-4ec2-8266-4033e2f12fc9(("Stop")):::stop
+        dc8fd8f5-f6d1-4b73-a807-e748f18450f1(("Stop")):::stop
+        3c6dcc6a-8bed-4052-8b20-79f3800591cd --> 990623df-3c3f-44ed-8d32-60bafd076c49
+        990623df-3c3f-44ed-8d32-60bafd076c49 --> 38d2efe9-d01d-4e4e-8755-9abdd72dd132
+        38d2efe9-d01d-4e4e-8755-9abdd72dd132 --> b51ff7d0-474e-4287-8402-f0bbc52da780
+        e71a5c26-f980-46fd-a992-1df426ac5369 --> 38d2efe9-d01d-4e4e-8755-9abdd72dd132
+        0a0127b5-2206-4749-9acf-7bb197e05dae --> e71a5c26-f980-46fd-a992-1df426ac5369
+        0a0127b5-2206-4749-9acf-7bb197e05dae --> b7dc10c3-6b4c-4bc8-80d9-2ab453a50ce7
+        b51ff7d0-474e-4287-8402-f0bbc52da780 --> 13217e2e-1697-43ad-b772-285e02f55373
+        13217e2e-1697-43ad-b772-285e02f55373 --> 0a0127b5-2206-4749-9acf-7bb197e05dae
+        0a0127b5-2206-4749-9acf-7bb197e05dae --> 4158599d-dcef-4c48-b908-b2aeb955eb6b
+        4158599d-dcef-4c48-b908-b2aeb955eb6b --> aaa91151-c91c-4ec2-8266-4033e2f12fc9
+        b7dc10c3-6b4c-4bc8-80d9-2ab453a50ce7 --> dc8fd8f5-f6d1-4b73-a807-e748f18450f1
+    end

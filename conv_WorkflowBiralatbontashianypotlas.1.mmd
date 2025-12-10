@@ -1,0 +1,53 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        727e853d-12b8-4d2f-81bc-c8e744384843{" "}:::gateway
+        b4ef6882-b858-4baa-b29e-0b054bdda329["Hiánypótlási felhívás elkészítése"]:::task
+        aef4c4ac-9a9b-4610-a253-4a82e6a60c03["Hiánypótlások ellenőrzése"]:::task
+        b718f8a1-dd40-462c-8cd7-cdc0f546c255{"(X) Hiánypótlás szükséges?"}:::gateway
+        d342619b-8b80-401d-ab54-f92e4184ecdd["Nem szükséges hiánypótlás"]:::task
+        af1a1aec-ae43-43c9-8297-89610989782e(("Stop")):::stop
+        66b16f53-f41b-4840-84ee-664f68d1197f{" "}:::gateway
+        58958a72-7060-4403-9b00-ec9832440d0d["Hiánypótlási felhívás megküldése"]:::task
+        2eae8ea5-e8da-41a5-a449-2dbf002dc763["Ajánlatok, jelentkezések bírálata"]:::task
+        c2056f81-ab0a-4129-ac7e-870930f255d7["Beszerzési vezetői jóváhagyás (Igen / Módosítás)"]:::task
+        73509d2f-ee1d-4f28-bbba-5a11b928defc["Bontás"]:::task
+        e0713e5c-3853-4fb0-a2e7-e98c238a7117(("Start")):::start
+        b056e222-22f3-4f90-8dc4-36f83b37f2e4["Technikai lépés"]:::task
+        727e853d-12b8-4d2f-81bc-c8e744384843 --> b4ef6882-b858-4baa-b29e-0b054bdda329
+        b718f8a1-dd40-462c-8cd7-cdc0f546c255 -- "Igen" --> 727e853d-12b8-4d2f-81bc-c8e744384843
+        b718f8a1-dd40-462c-8cd7-cdc0f546c255 -- "Nem" --> d342619b-8b80-401d-ab54-f92e4184ecdd
+        d342619b-8b80-401d-ab54-f92e4184ecdd --> af1a1aec-ae43-43c9-8297-89610989782e
+        aef4c4ac-9a9b-4610-a253-4a82e6a60c03 --> 66b16f53-f41b-4840-84ee-664f68d1197f
+        58958a72-7060-4403-9b00-ec9832440d0d --> aef4c4ac-9a9b-4610-a253-4a82e6a60c03
+        66b16f53-f41b-4840-84ee-664f68d1197f --> 2eae8ea5-e8da-41a5-a449-2dbf002dc763
+        2eae8ea5-e8da-41a5-a449-2dbf002dc763 --> b718f8a1-dd40-462c-8cd7-cdc0f546c255
+        c2056f81-ab0a-4129-ac7e-870930f255d7 -- "Módosítás szükséges" --> 727e853d-12b8-4d2f-81bc-c8e744384843
+        c2056f81-ab0a-4129-ac7e-870930f255d7 -- "Jóváhagyva" --> 58958a72-7060-4403-9b00-ec9832440d0d
+        b4ef6882-b858-4baa-b29e-0b054bdda329 --> c2056f81-ab0a-4129-ac7e-870930f255d7
+        73509d2f-ee1d-4f28-bbba-5a11b928defc --> 66b16f53-f41b-4840-84ee-664f68d1197f
+        e0713e5c-3853-4fb0-a2e7-e98c238a7117 --> b056e222-22f3-4f90-8dc4-36f83b37f2e4
+        b056e222-22f3-4f90-8dc4-36f83b37f2e4 --> 73509d2f-ee1d-4f28-bbba-5a11b928defc
+    end
+    subgraph sg_1 ["Szervezet"]
+    direction LR
+        1ce6ad52-dd69-455d-bb52-ecbbcb5ab114{"(X) Jóváhagyva?"}:::gateway
+        a3b47c94-0d3b-422f-97c4-a0790d0350a1["Módosítás szükséges"]:::task
+        3e13ccfa-1a2c-4bdb-81ed-a7b08ea56ffb(("Stop")):::stop
+        ada17d3d-4cad-472d-9525-2ccfef421fff["Jóváhagyva"]:::task
+        7e79abe2-462e-418b-a804-e93e035028a2(("Stop")):::stop
+        40ebc8ed-0a11-4af1-9eb4-8c09693221ba["Technikai lépés"]:::task
+        0e9b40d6-2037-484d-bcfb-9b6fea898ad8(("Start")):::start
+        32ddfa9c-f67d-40e9-a04c-ede4fe6ae50a["Beszerzési vezetői jóváhagyás (hiánypótlási felhívás)"]:::task
+        1ce6ad52-dd69-455d-bb52-ecbbcb5ab114 -- "Módosítás szükséges" --> a3b47c94-0d3b-422f-97c4-a0790d0350a1
+        a3b47c94-0d3b-422f-97c4-a0790d0350a1 --> 3e13ccfa-1a2c-4bdb-81ed-a7b08ea56ffb
+        1ce6ad52-dd69-455d-bb52-ecbbcb5ab114 -- "Igen" --> ada17d3d-4cad-472d-9525-2ccfef421fff
+        ada17d3d-4cad-472d-9525-2ccfef421fff --> 7e79abe2-462e-418b-a804-e93e035028a2
+        0e9b40d6-2037-484d-bcfb-9b6fea898ad8 --> 40ebc8ed-0a11-4af1-9eb4-8c09693221ba
+        40ebc8ed-0a11-4af1-9eb4-8c09693221ba --> 32ddfa9c-f67d-40e9-a04c-ede4fe6ae50a
+        32ddfa9c-f67d-40e9-a04c-ede4fe6ae50a --> 1ce6ad52-dd69-455d-bb52-ecbbcb5ab114
+    end

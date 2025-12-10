@@ -1,0 +1,24 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        82af104c-6fb7-4f7b-a8c0-e388c6d8cb12(("Start")):::start
+        83eb5452-84d5-4b47-8158-a2ca39d925f2["Technikai lépés"]:::task
+        04b525f6-4a79-486e-85f0-beb63d479251["EKR közzététel "]:::task
+        63380607-7981-4ca3-9a0f-c93203bfc78e["Eredmény rögzítése"]:::task
+        91d0e2ad-9894-4cb4-ad1d-316cac63684d{"(X)"}:::gateway
+        439cddc0-24c9-4aef-8a5a-d7af825096a5{" "}:::gateway
+        f46c15ee-b5bd-4733-9b2a-20a1bfec201f["Technikai end "]:::task
+        6541f6a7-b90a-44ce-a81e-6ad6eeafcfb8(("Stop")):::stop
+        82af104c-6fb7-4f7b-a8c0-e388c6d8cb12 --> 83eb5452-84d5-4b47-8158-a2ca39d925f2
+        83eb5452-84d5-4b47-8158-a2ca39d925f2 --> 63380607-7981-4ca3-9a0f-c93203bfc78e
+        63380607-7981-4ca3-9a0f-c93203bfc78e --> 91d0e2ad-9894-4cb4-ad1d-316cac63684d
+        91d0e2ad-9894-4cb4-ad1d-316cac63684d --> 04b525f6-4a79-486e-85f0-beb63d479251
+        04b525f6-4a79-486e-85f0-beb63d479251 --> 439cddc0-24c9-4aef-8a5a-d7af825096a5
+        91d0e2ad-9894-4cb4-ad1d-316cac63684d --> 439cddc0-24c9-4aef-8a5a-d7af825096a5
+        439cddc0-24c9-4aef-8a5a-d7af825096a5 --> f46c15ee-b5bd-4733-9b2a-20a1bfec201f
+        f46c15ee-b5bd-4733-9b2a-20a1bfec201f --> 6541f6a7-b90a-44ce-a81e-6ad6eeafcfb8
+    end

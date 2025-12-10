@@ -1,0 +1,29 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        f71ae188-4ad3-47bf-ada2-f14ca0833bab["311 EPK dokumentáció összeállítása"]:::task
+        5c2a24d8-25b0-477c-b4a5-3fee1bc47d56["312 EPK dokumentumok véleményezése"]:::task
+        f8a49b82-0349-4936-a6d1-fac476ed7842["Technikai lépés"]:::task
+        0dfdfc75-65f2-483f-bca7-d57a28f4f204["313 EPK dokumentum vélemények konszolidálása"]:::task
+        469b70cf-ef7a-4448-b3bc-3f04a8e0e5c0["316 EPK megindítása"]:::task
+        7bfc7889-f43a-42cd-b812-bceab64d8ddd["317 EPK vélemények/észrevételek rögzítése "]:::task
+        583bd534-7938-435d-b214-4f4f175dce96(("Stop")):::stop
+        01a4470d-defa-47b5-85ce-4e57b73a798d{"(+)"}:::gateway
+        029dcd3d-6672-440e-a1a3-a44474c8f802{" "}:::gateway
+        b9b35ec5-a3bd-419d-8988-b667ae24fa9c["Technikai lépés"]:::task
+        037db811-dd5c-4b79-9769-f57f7589e3f5(("Start")):::start
+        5c2a24d8-25b0-477c-b4a5-3fee1bc47d56 --> 029dcd3d-6672-440e-a1a3-a44474c8f802
+        029dcd3d-6672-440e-a1a3-a44474c8f802 --> f8a49b82-0349-4936-a6d1-fac476ed7842
+        f8a49b82-0349-4936-a6d1-fac476ed7842 --> 0dfdfc75-65f2-483f-bca7-d57a28f4f204
+        0dfdfc75-65f2-483f-bca7-d57a28f4f204 --> 469b70cf-ef7a-4448-b3bc-3f04a8e0e5c0
+        469b70cf-ef7a-4448-b3bc-3f04a8e0e5c0 --> 7bfc7889-f43a-42cd-b812-bceab64d8ddd
+        7bfc7889-f43a-42cd-b812-bceab64d8ddd --> 583bd534-7938-435d-b214-4f4f175dce96
+        01a4470d-defa-47b5-85ce-4e57b73a798d --> 5c2a24d8-25b0-477c-b4a5-3fee1bc47d56
+        f71ae188-4ad3-47bf-ada2-f14ca0833bab --> 01a4470d-defa-47b5-85ce-4e57b73a798d
+        b9b35ec5-a3bd-419d-8988-b667ae24fa9c --> f71ae188-4ad3-47bf-ada2-f14ca0833bab
+        037db811-dd5c-4b79-9769-f57f7589e3f5 --> b9b35ec5-a3bd-419d-8988-b667ae24fa9c
+    end

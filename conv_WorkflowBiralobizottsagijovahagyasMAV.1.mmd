@@ -1,0 +1,27 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Pool"]
+    direction LR
+        b2b1cef6-c40b-4b86-a95a-9e6ef45132f8(("Start")):::start
+        7cebbb73-32b2-4d04-8569-222442dbb02b["Technikai lépés"]:::task
+        346fd8f3-3c3a-4b68-a6ec-b661a5a77eef{"(X) Jóváhagyva?"}:::gateway
+        bf815ec5-a5e1-4089-b730-85c12f5eb257["Jóváhagyva"]:::task
+        4b5267ea-9686-4e53-9587-6e7ce8adfcc2(("Stop")):::stop
+        15685af0-90c6-44f5-81f5-b16ac86b6c1c{" "}:::gateway
+        494ca298-ad09-4d9b-b1f6-51240ea65fad["Módosítás szükséges"]:::task
+        f938bb8e-1c9f-4fce-9296-2abcfabb4765(("Stop")):::stop
+        97aea26e-3d46-4cfc-99cc-37cc37b0c041["Bírálóbizottsági jóváhagyás"]:::task
+        6d8908fc-32af-4cbc-8d9c-9a3b9ef09415["Jóváhagyások kiértékelése"]:::task
+        b2b1cef6-c40b-4b86-a95a-9e6ef45132f8 --> 7cebbb73-32b2-4d04-8569-222442dbb02b
+        bf815ec5-a5e1-4089-b730-85c12f5eb257 --> 4b5267ea-9686-4e53-9587-6e7ce8adfcc2
+        494ca298-ad09-4d9b-b1f6-51240ea65fad --> f938bb8e-1c9f-4fce-9296-2abcfabb4765
+        7cebbb73-32b2-4d04-8569-222442dbb02b --> 97aea26e-3d46-4cfc-99cc-37cc37b0c041
+        97aea26e-3d46-4cfc-99cc-37cc37b0c041 --> 15685af0-90c6-44f5-81f5-b16ac86b6c1c
+        15685af0-90c6-44f5-81f5-b16ac86b6c1c --> 6d8908fc-32af-4cbc-8d9c-9a3b9ef09415
+        6d8908fc-32af-4cbc-8d9c-9a3b9ef09415 --> 346fd8f3-3c3a-4b68-a6ec-b661a5a77eef
+        346fd8f3-3c3a-4b68-a6ec-b661a5a77eef -- "Módosítás szükséges" --> 494ca298-ad09-4d9b-b1f6-51240ea65fad
+        346fd8f3-3c3a-4b68-a6ec-b661a5a77eef -- "Igen" --> bf815ec5-a5e1-4089-b730-85c12f5eb257
+    end

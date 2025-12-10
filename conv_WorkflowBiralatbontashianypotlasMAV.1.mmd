@@ -1,0 +1,79 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        3cf1f0c7-ccb9-49c8-baac-8d69e4549374(("Start")):::start
+        4e9c2155-e87f-4738-90f5-bd041489e820["Technikai lépés"]:::task
+        09634350-03a3-45f5-8ceb-78407216c809{" "}:::gateway
+        0f2286a4-8513-4060-85a3-0b8fdea05041["Bírálóbizottsági tagok jóváhagyása"]:::task
+        514ce4f1-a077-4939-a62e-d3923588f52b["Hiánypótlás adminisztrációja"]:::task
+        f72bc5d4-bda1-496e-a460-ed83de29e497["Beszerzési vezetői jóváhagyás"]:::task
+        916fb8f0-05be-4e4c-9be6-8b9a50978a73["Bontás"]:::task
+        7491aa06-45a0-49bb-b68d-6630a03ca0b3["Ajánlatok, jelentkezések bírálata"]:::task
+        27b67855-77ad-4a73-915b-5c91ff687d72{"Hiánypótlás szükséges?"}:::gateway
+        8f93a771-a772-43f1-89b5-ba8ae8485b8d(("Stop")):::stop
+        810f9560-ae6d-4447-9134-8bce0f757a1c["Részfolyamat vége"]:::task
+        ab7010c7-2179-4567-b254-9425a7d35c89["Döntés hiánypótlásról"]:::task
+        b78aae43-d5cf-4382-9b73-7fcbfbb6cefa["Ajánlatok, jelentkezések bírálatának összesítése"]:::task
+        1233c735-6056-457e-9d45-5bb25a1284c4{"KBSZ eljárás?"}:::gateway
+        77d1eda9-f5de-4f1a-b426-6ee5d66effc7["Hiánypótlás felhívás elkészítése"]:::task
+        b28af3ef-1010-41b7-8724-f9d511dec38a{"KBSZ eljárás?"}:::gateway
+        dbe47295-87d7-403b-b4a7-7ab1c915cebb{" "}:::gateway
+        86b57725-f454-48f0-a459-fac73f41f833{" "}:::gateway
+        60e83c16-07bd-41f0-84aa-2d4549a804e6["Bírálat KBSZ-nek küldése"]:::task
+        f25ccfe9-5a73-41f9-b3b7-a3c8858c0b36["Hiánypótlási felhívás megküldése KBSZ-nek"]:::task
+        0e022a51-74bb-48c6-b01c-58f99de0b3eb{"A KBSZ igényli a közreműködést a hiánypótlási felhívás összeállításában?"}:::gateway
+        68792811-5e61-4091-8760-6e78749f0b9d["Technikai KBSZ igényli-e a szervezet közreműködését?"]:::task
+        3c8f3496-0849-4cd0-bcd5-6beeed4aa554["Technikai KBSZ-es eljárás?"]:::task
+        833425a1-f4e8-4b6a-9967-4dcbf6362f10{" "}:::gateway
+        4af26fa2-0a46-4fde-8904-f92301e5c658["Technikai KBSZ-es eljárás?"]:::task
+        73469bc6-a3b3-4e11-8a0c-fb6d8c1d9683{"KBSZ eljárás?"}:::gateway
+        8446892c-f5d9-4ed5-afe2-aee666bb4903{" "}:::gateway
+        43174aac-f080-4bda-aea9-d9f1e76b05f8{" "}:::gateway
+        d46ba9da-3287-4e8c-90ae-8b8415dc5cc3["Hiánypótlási felhívás megküldése, küldés adminisztrációja"]:::task
+        fca0d7ec-bf02-41b4-99f4-9e59bb2cb8cc{"KBSZ kér módosítást?"}:::gateway
+        6734dcab-0e04-4c97-9ae5-2f0849ef2401{" "}:::gateway
+        3790d945-06a3-496a-b92d-6451acbf336b["BB jóváhagyás vége"]:::task
+        3cf1f0c7-ccb9-49c8-baac-8d69e4549374 --> 4e9c2155-e87f-4738-90f5-bd041489e820
+        514ce4f1-a077-4939-a62e-d3923588f52b --> 09634350-03a3-45f5-8ceb-78407216c809
+        4e9c2155-e87f-4738-90f5-bd041489e820 --> 916fb8f0-05be-4e4c-9be6-8b9a50978a73
+        916fb8f0-05be-4e4c-9be6-8b9a50978a73 --> 09634350-03a3-45f5-8ceb-78407216c809
+        09634350-03a3-45f5-8ceb-78407216c809 --> 7491aa06-45a0-49bb-b68d-6630a03ca0b3
+        27b67855-77ad-4a73-915b-5c91ff687d72 -- "Nem" --> 810f9560-ae6d-4447-9134-8bce0f757a1c
+        810f9560-ae6d-4447-9134-8bce0f757a1c --> 8f93a771-a772-43f1-89b5-ba8ae8485b8d
+        ab7010c7-2179-4567-b254-9425a7d35c89 --> 27b67855-77ad-4a73-915b-5c91ff687d72
+        7491aa06-45a0-49bb-b68d-6630a03ca0b3 --> b78aae43-d5cf-4382-9b73-7fcbfbb6cefa
+        b78aae43-d5cf-4382-9b73-7fcbfbb6cefa --> 1233c735-6056-457e-9d45-5bb25a1284c4
+        77d1eda9-f5de-4f1a-b426-6ee5d66effc7 --> dbe47295-87d7-403b-b4a7-7ab1c915cebb
+        dbe47295-87d7-403b-b4a7-7ab1c915cebb --> 0f2286a4-8513-4060-85a3-0b8fdea05041
+        b28af3ef-1010-41b7-8724-f9d511dec38a -- "Nem" --> 86b57725-f454-48f0-a459-fac73f41f833
+        86b57725-f454-48f0-a459-fac73f41f833 --> 77d1eda9-f5de-4f1a-b426-6ee5d66effc7
+        1233c735-6056-457e-9d45-5bb25a1284c4 -- "Igen" --> 60e83c16-07bd-41f0-84aa-2d4549a804e6
+        0e022a51-74bb-48c6-b01c-58f99de0b3eb -- "Igen" --> 86b57725-f454-48f0-a459-fac73f41f833
+        b28af3ef-1010-41b7-8724-f9d511dec38a -- "Igen" --> 68792811-5e61-4091-8760-6e78749f0b9d
+        68792811-5e61-4091-8760-6e78749f0b9d --> 0e022a51-74bb-48c6-b01c-58f99de0b3eb
+        27b67855-77ad-4a73-915b-5c91ff687d72 -- "Igen" --> 3c8f3496-0849-4cd0-bcd5-6beeed4aa554
+        3c8f3496-0849-4cd0-bcd5-6beeed4aa554 --> b28af3ef-1010-41b7-8724-f9d511dec38a
+        833425a1-f4e8-4b6a-9967-4dcbf6362f10 --> f25ccfe9-5a73-41f9-b3b7-a3c8858c0b36
+        f72bc5d4-bda1-496e-a460-ed83de29e497 -- "Technikai beszerzési vezető jóváhagyva" --> 4af26fa2-0a46-4fde-8904-f92301e5c658
+        4af26fa2-0a46-4fde-8904-f92301e5c658 --> 73469bc6-a3b3-4e11-8a0c-fb6d8c1d9683
+        73469bc6-a3b3-4e11-8a0c-fb6d8c1d9683 -- "Igen" --> 833425a1-f4e8-4b6a-9967-4dcbf6362f10
+        f72bc5d4-bda1-496e-a460-ed83de29e497 -- "Technikai beszerzési vezető módosítás szükséges" --> 8446892c-f5d9-4ed5-afe2-aee666bb4903
+        0f2286a4-8513-4060-85a3-0b8fdea05041 -- "Módosítás szükséges" --> 8446892c-f5d9-4ed5-afe2-aee666bb4903
+        8446892c-f5d9-4ed5-afe2-aee666bb4903 --> 86b57725-f454-48f0-a459-fac73f41f833
+        60e83c16-07bd-41f0-84aa-2d4549a804e6 --> 43174aac-f080-4bda-aea9-d9f1e76b05f8
+        1233c735-6056-457e-9d45-5bb25a1284c4 -- "Nem" --> 43174aac-f080-4bda-aea9-d9f1e76b05f8
+        43174aac-f080-4bda-aea9-d9f1e76b05f8 --> ab7010c7-2179-4567-b254-9425a7d35c89
+        d46ba9da-3287-4e8c-90ae-8b8415dc5cc3 --> 514ce4f1-a077-4939-a62e-d3923588f52b
+        f25ccfe9-5a73-41f9-b3b7-a3c8858c0b36 --> fca0d7ec-bf02-41b4-99f4-9e59bb2cb8cc
+        fca0d7ec-bf02-41b4-99f4-9e59bb2cb8cc -- "Nem" --> 6734dcab-0e04-4c97-9ae5-2f0849ef2401
+        73469bc6-a3b3-4e11-8a0c-fb6d8c1d9683 -- "Nem" --> 6734dcab-0e04-4c97-9ae5-2f0849ef2401
+        0e022a51-74bb-48c6-b01c-58f99de0b3eb -- "Nem" --> 6734dcab-0e04-4c97-9ae5-2f0849ef2401
+        6734dcab-0e04-4c97-9ae5-2f0849ef2401 --> d46ba9da-3287-4e8c-90ae-8b8415dc5cc3
+        fca0d7ec-bf02-41b4-99f4-9e59bb2cb8cc -- "Igen" --> 86b57725-f454-48f0-a459-fac73f41f833
+        0f2286a4-8513-4060-85a3-0b8fdea05041 -- "Jóváhagyva" --> 3790d945-06a3-496a-b92d-6451acbf336b
+        3790d945-06a3-496a-b92d-6451acbf336b --> f72bc5d4-bda1-496e-a460-ed83de29e497
+    end

@@ -1,0 +1,82 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        68277f2f-7775-4fe6-ad48-79577338c47a["KEF jóváhagyási alfolyamat"]:::task
+        dc96e681-b645-4537-a1c7-dad93b902ad0["Munkacsoport szignálás"]:::task
+        258e67d7-c723-434d-b7a7-6bb0827c7aff["EU-s forrásból megvalósuló beszerzések jóváhagyási folyamata"]:::task
+        f3a9005e-3d96-4095-b172-038e7f3133f7["DMS által elutasítva"]:::task
+        805e1f58-2175-4a6b-9dbf-5dea416c17b1(("Stop")):::stop
+        a4e654a5-d3e6-4914-be52-f3cf513d74bb(("Stop")):::stop
+        dc5243f0-d5e1-41dd-8ae5-b21578fba981["KFF által elutasítva"]:::task
+        79590645-cde1-409a-9b4e-8c92088bdd93["IH által elutasítva"]:::task
+        0ca3205e-7840-4063-9183-975418286bc2(("Stop")):::stop
+        00e75dd6-9f51-4849-ad15-09d9a79587fe{" "}:::gateway
+        544393e6-c686-4a73-a845-01cbe997c57e{" "}:::gateway
+        93871cb3-4b2a-4875-bf9b-6f9a04bdf81e["DMS köröztetése szükséges?"]:::task
+        de2e77c7-e255-4283-a96b-65da4d059b34["Technikai - KEF érintett?"]:::task
+        7e5e3ae0-c9b1-4073-9282-a2290cb37f30["DMS jóváhagyási alfolyamat"]:::task
+        56845675-ecf9-461a-a1cd-0ae59897ca23["Technikai lépés FMR start"]:::task
+        248901b4-c14c-46a0-95d1-b1dcbaa3c414{"DMS köröztetés szükséges?"}:::gateway
+        7c342582-b414-41d2-83d3-57ebb789b4f3["FMR jóváhagyási alfolyamat"]:::task
+        043ee5b5-9fe4-4edb-8fc9-ecd0d1397c22["Jóváhagyó szervezet által lefolytatott eljárás előkészítése"]:::task
+        17addb11-170b-49c4-9bd2-b108d3569c4e["Beszerzés forrása"]:::task
+        ef289633-bccd-4a40-abdb-970ca32ddd6a["MÁV-VOLÁN csoport hatáskörben lefolytatott eljárás"]:::task
+        ec1d272d-31fb-49da-9648-c1a488e17e00{" "}:::gateway
+        faa77093-3c04-4288-8835-9590c2f1e7c4["Máv-Volán Tech start"]:::task
+        b11774ca-78e9-4221-8297-11d00932a798{"(X) Milyen eljárás előkészítés szükséges?"}:::gateway
+        20c4ff57-7f8c-47cd-b131-d8521c927773(("Start")):::start
+        1d4a1c7d-fb38-4fa8-83b8-7527ac03ad72{" "}:::gateway
+        bb6f1a25-5f92-4bce-8119-f91b5c24ed28{" "}:::gateway
+        be1ecd61-3140-4a84-920b-f3f06ec41c9d{"(X) Beszerzés forrása"}:::gateway
+        963cbd97-c620-4fc6-a909-c599e2cfc9c4{"(X) Exante/Export"}:::gateway
+        ecf32d67-bd33-4ac4-936f-a5d905a4b0b9{" "}:::gateway
+        aed66e7f-649a-492a-ab65-82f797472d63["400 Eljárás dokumentumok formai és tartalmi ellenőrzése "]:::task
+        ee27c2a7-9662-42ed-9979-cf5f16b784c6(("Stop")):::stop
+        974b6e50-9cb7-44d1-82cb-5bc49d5f5986["Eljárás előkészítése END"]:::task
+        5abbbee0-627e-4673-94a4-e6f27b37ed47["Eljárás résztvevőinek véglegesítése"]:::task
+        cb3a53f1-a2d7-4416-b285-c15635007767["Jóváhagyó szervezet által lefolytatott eljárás technikai start"]:::task
+        544393e6-c686-4a73-a845-01cbe997c57e -- "Igen" --> 68277f2f-7775-4fe6-ad48-79577338c47a
+        68277f2f-7775-4fe6-ad48-79577338c47a -- "Technikai igen" --> 00e75dd6-9f51-4849-ad15-09d9a79587fe
+        dc96e681-b645-4537-a1c7-dad93b902ad0 -- "Technikai vég" --> bb6f1a25-5f92-4bce-8119-f91b5c24ed28
+        f3a9005e-3d96-4095-b172-038e7f3133f7 --> 805e1f58-2175-4a6b-9dbf-5dea416c17b1
+        dc5243f0-d5e1-41dd-8ae5-b21578fba981 --> a4e654a5-d3e6-4914-be52-f3cf513d74bb
+        79590645-cde1-409a-9b4e-8c92088bdd93 --> 0ca3205e-7840-4063-9183-975418286bc2
+        544393e6-c686-4a73-a845-01cbe997c57e -- "Nem" --> 00e75dd6-9f51-4849-ad15-09d9a79587fe
+        974b6e50-9cb7-44d1-82cb-5bc49d5f5986 --> ee27c2a7-9662-42ed-9979-cf5f16b784c6
+        7c342582-b414-41d2-83d3-57ebb789b4f3 -- "Technikai hiánypótlás" --> 1d4a1c7d-fb38-4fa8-83b8-7527ac03ad72
+        248901b4-c14c-46a0-95d1-b1dcbaa3c414 -- "Nem" --> dc96e681-b645-4537-a1c7-dad93b902ad0
+        b11774ca-78e9-4221-8297-11d00932a798 -- "Jóváhagyó szervezetek által lefolytatott" --> cb3a53f1-a2d7-4416-b285-c15635007767
+        043ee5b5-9fe4-4edb-8fc9-ecd0d1397c22 -- "Megfelelő" --> 00e75dd6-9f51-4849-ad15-09d9a79587fe
+        963cbd97-c620-4fc6-a909-c599e2cfc9c4 -- "Exante" --> 258e67d7-c723-434d-b7a7-6bb0827c7aff
+        258e67d7-c723-434d-b7a7-6bb0827c7aff -- "Technikai Eljárás elutasítva KFF által" --> dc5243f0-d5e1-41dd-8ae5-b21578fba981
+        258e67d7-c723-434d-b7a7-6bb0827c7aff -- "Technikai Eljárás elutasítva IH által" --> 79590645-cde1-409a-9b4e-8c92088bdd93
+        258e67d7-c723-434d-b7a7-6bb0827c7aff -- "Technikai vég" --> ecf32d67-bd33-4ac4-936f-a5d905a4b0b9
+        68277f2f-7775-4fe6-ad48-79577338c47a -- "Tecchnikai nem" --> ec1d272d-31fb-49da-9648-c1a488e17e00
+        7c342582-b414-41d2-83d3-57ebb789b4f3 -- "Technikai - Jóváhagyva" --> 93871cb3-4b2a-4875-bf9b-6f9a04bdf81e
+        93871cb3-4b2a-4875-bf9b-6f9a04bdf81e --> 248901b4-c14c-46a0-95d1-b1dcbaa3c414
+        00e75dd6-9f51-4849-ad15-09d9a79587fe --> 56845675-ecf9-461a-a1cd-0ae59897ca23
+        ec1d272d-31fb-49da-9648-c1a488e17e00 --> faa77093-3c04-4288-8835-9590c2f1e7c4
+        bb6f1a25-5f92-4bce-8119-f91b5c24ed28 --> 17addb11-170b-49c4-9bd2-b108d3569c4e
+        248901b4-c14c-46a0-95d1-b1dcbaa3c414 -- "Igen" --> 7e5e3ae0-c9b1-4073-9282-a2290cb37f30
+        7e5e3ae0-c9b1-4073-9282-a2290cb37f30 -- "Elutasítás technikai vég" --> f3a9005e-3d96-4095-b172-038e7f3133f7
+        7e5e3ae0-c9b1-4073-9282-a2290cb37f30 -- "Jóváhagyás technikai vég" --> bb6f1a25-5f92-4bce-8119-f91b5c24ed28
+        17addb11-170b-49c4-9bd2-b108d3569c4e --> be1ecd61-3140-4a84-920b-f3f06ec41c9d
+        ef289633-bccd-4a40-abdb-970ca32ddd6a -- "Technikai end" --> de2e77c7-e255-4283-a96b-65da4d059b34
+        de2e77c7-e255-4283-a96b-65da4d059b34 --> 544393e6-c686-4a73-a845-01cbe997c57e
+        b11774ca-78e9-4221-8297-11d00932a798 -- "MÁV-VOLÁN csoport hatáskörben lefolytatott" --> ec1d272d-31fb-49da-9648-c1a488e17e00
+        56845675-ecf9-461a-a1cd-0ae59897ca23 --> 7c342582-b414-41d2-83d3-57ebb789b4f3
+        faa77093-3c04-4288-8835-9590c2f1e7c4 --> ef289633-bccd-4a40-abdb-970ca32ddd6a
+        1d4a1c7d-fb38-4fa8-83b8-7527ac03ad72 --> b11774ca-78e9-4221-8297-11d00932a798
+        be1ecd61-3140-4a84-920b-f3f06ec41c9d -- "Hazai" --> ecf32d67-bd33-4ac4-936f-a5d905a4b0b9
+        be1ecd61-3140-4a84-920b-f3f06ec41c9d -- "EU" --> 963cbd97-c620-4fc6-a909-c599e2cfc9c4
+        963cbd97-c620-4fc6-a909-c599e2cfc9c4 -- "Export" --> ecf32d67-bd33-4ac4-936f-a5d905a4b0b9
+        ecf32d67-bd33-4ac4-936f-a5d905a4b0b9 --> aed66e7f-649a-492a-ab65-82f797472d63
+        aed66e7f-649a-492a-ab65-82f797472d63 --> 974b6e50-9cb7-44d1-82cb-5bc49d5f5986
+        20c4ff57-7f8c-47cd-b131-d8521c927773 --> 5abbbee0-627e-4673-94a4-e6f27b37ed47
+        5abbbee0-627e-4673-94a4-e6f27b37ed47 --> 1d4a1c7d-fb38-4fa8-83b8-7527ac03ad72
+        cb3a53f1-a2d7-4416-b285-c15635007767 --> 043ee5b5-9fe4-4edb-8fc9-ecd0d1397c22
+    end

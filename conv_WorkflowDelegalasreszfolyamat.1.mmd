@@ -1,0 +1,28 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        05fb684b-e1c0-4c97-b6be-851f76ee02b3{" "}:::gateway
+        79fa5de1-18ac-417f-8203-818c054be099["Feladat ellenőrzése"]:::task
+        439206f8-583a-413e-9d25-edc4520e9fa2{"Módosítás szükséges?"}:::gateway
+        4e643f44-f9ca-4d70-b5af-b0980344ba90["Technikai vég"]:::task
+        be45cd74-dfca-4d08-a2ad-b7a07a3cc7ea(("Stop")):::stop
+        f31f13ae-30a3-4874-9dd6-893fd3cb6409["Módosítások végrehajtása"]:::task
+        55246fcf-ec03-4fb5-80d6-1d41143469d2(("Start")):::start
+        007cc9a8-b13a-4aa9-b549-45263407f94e["Delegálás indítása"]:::task
+        c10a307d-8fb7-44ae-bd4c-9e54ac7dc2fd["Feladat végrehajtása"]:::task
+        5a34cdb7-b4a5-4c5b-a124-33bbc1ee9e0d["Feladat létrehozása, felelős kijelölése"]:::task
+        4e643f44-f9ca-4d70-b5af-b0980344ba90 --> be45cd74-dfca-4d08-a2ad-b7a07a3cc7ea
+        439206f8-583a-413e-9d25-edc4520e9fa2 -- "Nem" --> 4e643f44-f9ca-4d70-b5af-b0980344ba90
+        439206f8-583a-413e-9d25-edc4520e9fa2 -- "Igen" --> f31f13ae-30a3-4874-9dd6-893fd3cb6409
+        79fa5de1-18ac-417f-8203-818c054be099 --> 439206f8-583a-413e-9d25-edc4520e9fa2
+        f31f13ae-30a3-4874-9dd6-893fd3cb6409 --> 05fb684b-e1c0-4c97-b6be-851f76ee02b3
+        05fb684b-e1c0-4c97-b6be-851f76ee02b3 --> 79fa5de1-18ac-417f-8203-818c054be099
+        55246fcf-ec03-4fb5-80d6-1d41143469d2 --> 007cc9a8-b13a-4aa9-b549-45263407f94e
+        c10a307d-8fb7-44ae-bd4c-9e54ac7dc2fd --> 05fb684b-e1c0-4c97-b6be-851f76ee02b3
+        007cc9a8-b13a-4aa9-b549-45263407f94e --> 5a34cdb7-b4a5-4c5b-a124-33bbc1ee9e0d
+        5a34cdb7-b4a5-4c5b-a124-33bbc1ee9e0d --> c10a307d-8fb7-44ae-bd4c-9e54ac7dc2fd
+    end

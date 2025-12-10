@@ -1,0 +1,31 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        534ebf5a-8cb5-4af3-802e-09bd78c4c9de["Technikai Start"]:::task
+        777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e["Eljárás előkészítése"]:::task
+        bca4a84f-bb76-4ec1-bce2-aa311779c7b5(("Start")):::start
+        0f3a4d9a-2950-4060-ad3d-8fb3a6c66522["Eljárás eredménye 2. - MÁV"]:::task
+        89ab7af3-09e6-43b5-9f2f-9bc8f64df921(("Stop")):::stop
+        f643e29c-7089-43dc-a5bf-420b782bc0b8["DMS által elutasítva"]:::task
+        2d6adca9-688e-4222-9d18-6a25159d408b(("Stop")):::stop
+        ac145506-cccd-4a82-bc2c-0da5c7a95805["IH által elutasítva"]:::task
+        035c070e-8d4b-4729-97d0-41db77a8ffc4(("Stop")):::stop
+        cd08f135-c41e-4540-a9aa-1403d42db3c0["Technikai END"]:::task
+        c0b5d9a8-f4c9-449b-bbc0-cebec2a5306f["KFF által elutasítva"]:::task
+        60fad196-c02a-4da2-be02-acf20b44007b(("Stop")):::stop
+        bca4a84f-bb76-4ec1-bce2-aa311779c7b5 --> 534ebf5a-8cb5-4af3-802e-09bd78c4c9de
+        534ebf5a-8cb5-4af3-802e-09bd78c4c9de --> 777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e
+        777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e -- "DMS által elutasítva" --> f643e29c-7089-43dc-a5bf-420b782bc0b8
+        777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e -- "IH által elutasítva" --> ac145506-cccd-4a82-bc2c-0da5c7a95805
+        f643e29c-7089-43dc-a5bf-420b782bc0b8 --> 2d6adca9-688e-4222-9d18-6a25159d408b
+        ac145506-cccd-4a82-bc2c-0da5c7a95805 --> 035c070e-8d4b-4729-97d0-41db77a8ffc4
+        0f3a4d9a-2950-4060-ad3d-8fb3a6c66522 -- "Technikai end " --> cd08f135-c41e-4540-a9aa-1403d42db3c0
+        cd08f135-c41e-4540-a9aa-1403d42db3c0 --> 89ab7af3-09e6-43b5-9f2f-9bc8f64df921
+        777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e -- "Eljárás előkészítése END" --> 0f3a4d9a-2950-4060-ad3d-8fb3a6c66522
+        777b29e6-8aa5-4ad7-95ae-c23f96bf5b7e -- "KFF által elutasítva" --> c0b5d9a8-f4c9-449b-bbc0-cebec2a5306f
+        c0b5d9a8-f4c9-449b-bbc0-cebec2a5306f --> 60fad196-c02a-4da2-be02-acf20b44007b
+    end

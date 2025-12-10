@@ -1,0 +1,25 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        b37edccf-f54a-4ede-99e8-f8118598c8fb(("Start")):::start
+        5859319c-045d-47cf-858e-077db27f3545["DMS Köröztetés Indítása"]:::task
+        ca8c7fb5-9252-4aa5-a4fe-f1dc8c4994e6["DMS Vélemények, Jóváhagyások rögzítése"]:::task
+        9f434045-c175-44b7-a394-dacb5122e891(("Stop")):::stop
+        494548f8-6056-442c-85d7-fe00b9cf7b3f["Jóváhagyva"]:::task
+        ce430ddb-2890-493f-903a-859512b6c693{"Előterjesztés jóváhagyva? "}:::gateway
+        573b92d7-97e0-40b6-a366-974804cc46b5["Határozathozatal rögzítése"]:::task
+        bcfdb985-8c2a-4834-bca8-bc012fafcd69["Módosítás szükséges"]:::task
+        f388b6be-3504-4fac-844c-14daa8a2a0af(("Stop")):::stop
+        b37edccf-f54a-4ede-99e8-f8118598c8fb --> 5859319c-045d-47cf-858e-077db27f3545
+        5859319c-045d-47cf-858e-077db27f3545 --> ca8c7fb5-9252-4aa5-a4fe-f1dc8c4994e6
+        494548f8-6056-442c-85d7-fe00b9cf7b3f --> 9f434045-c175-44b7-a394-dacb5122e891
+        ce430ddb-2890-493f-903a-859512b6c693 -- "Igen" --> 494548f8-6056-442c-85d7-fe00b9cf7b3f
+        ca8c7fb5-9252-4aa5-a4fe-f1dc8c4994e6 --> 573b92d7-97e0-40b6-a366-974804cc46b5
+        573b92d7-97e0-40b6-a366-974804cc46b5 --> ce430ddb-2890-493f-903a-859512b6c693
+        ce430ddb-2890-493f-903a-859512b6c693 -- "Módosítás szükséges" --> bcfdb985-8c2a-4834-bca8-bc012fafcd69
+        bcfdb985-8c2a-4834-bca8-bc012fafcd69 --> f388b6be-3504-4fac-844c-14daa8a2a0af
+    end

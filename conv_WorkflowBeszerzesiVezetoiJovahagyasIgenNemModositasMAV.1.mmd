@@ -1,0 +1,27 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        29910f49-7ebe-4be9-ae0c-06abbc4f7197["Elutasítva"]:::task
+        48726900-2d1d-4e6c-b39b-b949bbc6168e{"(X) Jóváhagyva?"}:::gateway
+        0c69b6fa-ccb1-4b5a-93b6-9a5655b5d89c(("Stop")):::stop
+        329eb7bd-23e0-493a-af72-64ed1e45eeab["Jóváhagyva"]:::task
+        c2450bf1-0057-4970-96f0-9f41ebc6a728(("Stop")):::stop
+        3b11c7b7-8763-411c-ae66-dc56f52c8620["Módosítás szükséges"]:::task
+        b716b16a-04a4-4653-b4f8-cfae65e48204(("Stop")):::stop
+        167d9f4f-05ce-4792-8fde-c10f6076c4d0["Technikai lépés"]:::task
+        21585643-e35b-40d5-a36a-c99d113ffa3d(("Start")):::start
+        35ae6170-599b-4bd2-957d-56d2466dcb1b["Beszerzési vezetői jóváhagyás, aláírás "]:::task
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Nem" --> 29910f49-7ebe-4be9-ae0c-06abbc4f7197
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Igen" --> 329eb7bd-23e0-493a-af72-64ed1e45eeab
+        329eb7bd-23e0-493a-af72-64ed1e45eeab --> c2450bf1-0057-4970-96f0-9f41ebc6a728
+        48726900-2d1d-4e6c-b39b-b949bbc6168e -- "Módosítás szükséges" --> 3b11c7b7-8763-411c-ae66-dc56f52c8620
+        3b11c7b7-8763-411c-ae66-dc56f52c8620 --> 0c69b6fa-ccb1-4b5a-93b6-9a5655b5d89c
+        29910f49-7ebe-4be9-ae0c-06abbc4f7197 --> b716b16a-04a4-4653-b4f8-cfae65e48204
+        21585643-e35b-40d5-a36a-c99d113ffa3d --> 167d9f4f-05ce-4792-8fde-c10f6076c4d0
+        167d9f4f-05ce-4792-8fde-c10f6076c4d0 --> 35ae6170-599b-4bd2-957d-56d2466dcb1b
+        35ae6170-599b-4bd2-957d-56d2466dcb1b --> 48726900-2d1d-4e6c-b39b-b949bbc6168e
+    end

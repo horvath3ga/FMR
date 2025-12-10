@@ -1,0 +1,32 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Szervezet"]
+    direction LR
+        383f469c-ad2a-4157-a4be-404a1df8360f["Összegezés, részvételi szakasz eredményéről szóló tájékoztatás"]:::task
+        bfdbc4bd-07ef-4660-af31-dda5608542ee{"(X) Összegezés módosítás szükséges?"}:::gateway
+        02482a9b-4354-42fc-b925-ab898b4fb3d2["Összegezés módosítása"]:::task
+        1c281e7e-57f3-474f-b193-280ceefefce6{" "}:::gateway
+        8866ca9f-8b65-43e4-bf9f-a7f776f44a3a{"(X) Eljárás eredményes?"}:::gateway
+        ced65983-0a91-47f5-8c4c-d95c03fe2a2e["Eredmény rögzítése"]:::task
+        74f11dab-83f5-4d78-9588-af5c0d428236["Nem eredményes"]:::task
+        55d4c5f8-c64d-44ab-a4f4-4306878cc224(("Stop")):::stop
+        ffcb38cc-d414-4adc-b8b5-fd263b1634f0["Eredményes"]:::task
+        e0652b1e-46c5-4afe-8958-2fb6e305df5b(("Stop")):::stop
+        158072e0-e674-4414-a755-0a8c5ea87f1b(("Start")):::start
+        28cd79e0-03d4-4274-ae6b-d79699e05664["Technikai lépés"]:::task
+        383f469c-ad2a-4157-a4be-404a1df8360f --> bfdbc4bd-07ef-4660-af31-dda5608542ee
+        bfdbc4bd-07ef-4660-af31-dda5608542ee -- "Igen" --> 02482a9b-4354-42fc-b925-ab898b4fb3d2
+        02482a9b-4354-42fc-b925-ab898b4fb3d2 --> 1c281e7e-57f3-474f-b193-280ceefefce6
+        bfdbc4bd-07ef-4660-af31-dda5608542ee -- "Nem" --> 1c281e7e-57f3-474f-b193-280ceefefce6
+        1c281e7e-57f3-474f-b193-280ceefefce6 --> ced65983-0a91-47f5-8c4c-d95c03fe2a2e
+        ced65983-0a91-47f5-8c4c-d95c03fe2a2e --> 8866ca9f-8b65-43e4-bf9f-a7f776f44a3a
+        8866ca9f-8b65-43e4-bf9f-a7f776f44a3a -- "Nem" --> 74f11dab-83f5-4d78-9588-af5c0d428236
+        74f11dab-83f5-4d78-9588-af5c0d428236 --> 55d4c5f8-c64d-44ab-a4f4-4306878cc224
+        8866ca9f-8b65-43e4-bf9f-a7f776f44a3a -- "Igen" --> ffcb38cc-d414-4adc-b8b5-fd263b1634f0
+        ffcb38cc-d414-4adc-b8b5-fd263b1634f0 --> e0652b1e-46c5-4afe-8958-2fb6e305df5b
+        158072e0-e674-4414-a755-0a8c5ea87f1b --> 28cd79e0-03d4-4274-ae6b-d79699e05664
+        28cd79e0-03d4-4274-ae6b-d79699e05664 --> 383f469c-ad2a-4157-a4be-404a1df8360f
+    end

@@ -1,0 +1,23 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        7936a55d-29fc-4360-b952-95d3900d1f00["1. Beszerzési vezetői jóváhagyás, aláírás"]:::task
+        a10f5929-8413-4717-a9c2-749607023272(("Stop")):::stop
+        0dc91a17-1574-48fc-bbab-ea77a1953560{"Jóváhagyva?"}:::gateway
+        805cf3f1-bf7e-438e-ba2b-3c6bd8c42502["Technikai beszerzési vezető jóváhagyva"]:::task
+        e1816546-f76c-4c70-8448-0d0008af7734(("Stop")):::stop
+        eda4a75c-abde-4848-98c5-003bd86d6779["Beszerzési vezetői jóváhagyás technikai start"]:::task
+        e1c57e0c-9f29-4225-b0e0-22188c59a85d(("Start")):::start
+        702dc43b-ad5e-4515-9479-3fd04ffd2d76["Technikai beszerzési vezető módosítás szükséges"]:::task
+        7936a55d-29fc-4360-b952-95d3900d1f00 --> 0dc91a17-1574-48fc-bbab-ea77a1953560
+        0dc91a17-1574-48fc-bbab-ea77a1953560 -- "Igen" --> 805cf3f1-bf7e-438e-ba2b-3c6bd8c42502
+        805cf3f1-bf7e-438e-ba2b-3c6bd8c42502 --> e1816546-f76c-4c70-8448-0d0008af7734
+        eda4a75c-abde-4848-98c5-003bd86d6779 --> 7936a55d-29fc-4360-b952-95d3900d1f00
+        e1c57e0c-9f29-4225-b0e0-22188c59a85d --> eda4a75c-abde-4848-98c5-003bd86d6779
+        0dc91a17-1574-48fc-bbab-ea77a1953560 -- "Módosítás szükséges" --> 702dc43b-ad5e-4515-9479-3fd04ffd2d76
+        702dc43b-ad5e-4515-9479-3fd04ffd2d76 --> a10f5929-8413-4717-a9c2-749607023272
+    end

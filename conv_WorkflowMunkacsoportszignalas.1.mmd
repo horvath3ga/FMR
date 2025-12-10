@@ -1,0 +1,41 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        771b78f7-8e50-4f69-afd2-5e7a449a01f1["271 Jogi szignó"]:::task
+        a63a7948-d169-468d-bb6d-9c7e26993449{" "}:::gateway
+        ba7f9209-8c9d-44fd-987f-1efa23db7b4b["272 Beszerzői szignó"]:::task
+        f1228c61-d6b0-4dcf-b628-89c371526680{"(+)"}:::gateway
+        4a4fa7f9-dec0-43e8-a191-2b88ae300243["273 Forrásgazdai szignó"]:::task
+        51cb7ad4-4451-4f04-ba4f-905275cb7abd{" "}:::gateway
+        e5458541-9c3e-4196-b97a-c3f8c250aeee{"(X) Szükséges pénzügyi szignó?"}:::gateway
+        9e2fd891-f14a-4493-93de-27d1c26d4883(("Start")):::start
+        e6ff9404-1488-420e-b5a4-2a8e3ba871c2["Technikai start "]:::task
+        07a9cf46-e38f-4734-8aff-a0ef094734f8{"(X) Szükséges jogi szignó?"}:::gateway
+        54711bfc-5397-4402-8b53-922a35df87bb(("Stop")):::stop
+        f36b3b27-3d7e-42bd-86d4-da870db2941a["Technikai vég"]:::task
+        1c06fb57-7c79-4e9e-9f89-87862d66fe87{" "}:::gateway
+        3efdc43b-ff16-4189-a1aa-2dbd4d14e2fb{" "}:::gateway
+        00c562ba-ed94-49f5-a396-99db01e7fbd0["274 Pénzügyi szignó"]:::task
+        5b241743-d833-45e9-924d-baa8aa84e844{"(+)"}:::gateway
+        771b78f7-8e50-4f69-afd2-5e7a449a01f1 --> a63a7948-d169-468d-bb6d-9c7e26993449
+        a63a7948-d169-468d-bb6d-9c7e26993449 --> ba7f9209-8c9d-44fd-987f-1efa23db7b4b
+        ba7f9209-8c9d-44fd-987f-1efa23db7b4b --> f1228c61-d6b0-4dcf-b628-89c371526680
+        f1228c61-d6b0-4dcf-b628-89c371526680 --> 4a4fa7f9-dec0-43e8-a191-2b88ae300243
+        4a4fa7f9-dec0-43e8-a191-2b88ae300243 --> 51cb7ad4-4451-4f04-ba4f-905275cb7abd
+        51cb7ad4-4451-4f04-ba4f-905275cb7abd --> e5458541-9c3e-4196-b97a-c3f8c250aeee
+        9e2fd891-f14a-4493-93de-27d1c26d4883 --> e6ff9404-1488-420e-b5a4-2a8e3ba871c2
+        e6ff9404-1488-420e-b5a4-2a8e3ba871c2 --> 07a9cf46-e38f-4734-8aff-a0ef094734f8
+        07a9cf46-e38f-4734-8aff-a0ef094734f8 -- "Nem" --> a63a7948-d169-468d-bb6d-9c7e26993449
+        07a9cf46-e38f-4734-8aff-a0ef094734f8 -- "Igen" --> 771b78f7-8e50-4f69-afd2-5e7a449a01f1
+        f36b3b27-3d7e-42bd-86d4-da870db2941a --> 54711bfc-5397-4402-8b53-922a35df87bb
+        e5458541-9c3e-4196-b97a-c3f8c250aeee -- "Nem" --> 1c06fb57-7c79-4e9e-9f89-87862d66fe87
+        1c06fb57-7c79-4e9e-9f89-87862d66fe87 --> f36b3b27-3d7e-42bd-86d4-da870db2941a
+        3efdc43b-ff16-4189-a1aa-2dbd4d14e2fb --> 1c06fb57-7c79-4e9e-9f89-87862d66fe87
+        00c562ba-ed94-49f5-a396-99db01e7fbd0 --> 3efdc43b-ff16-4189-a1aa-2dbd4d14e2fb
+        e5458541-9c3e-4196-b97a-c3f8c250aeee -- "Igen" --> 5b241743-d833-45e9-924d-baa8aa84e844
+        5b241743-d833-45e9-924d-baa8aa84e844 --> 00c562ba-ed94-49f5-a396-99db01e7fbd0
+    end

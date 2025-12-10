@@ -1,0 +1,70 @@
+flowchart LR
+    classDef start fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef stop fill:#f9f,stroke:#333,stroke-width:4px,color:#000;
+    classDef task fill:#fff,stroke:#333,stroke-width:1px,color:#000;
+    classDef gateway fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
+    subgraph sg_0 ["Folyamat_1"]
+    direction LR
+        7653d007-7965-4288-9f2e-0128b9508e4d{"Dokumentáció megfelelő?"}:::gateway
+        621aedd2-1308-4dca-b6f4-e444b894cbc0["323 EPK dokumentum vélemények konszolidálása"]:::task
+        f935da51-cb66-46ad-a0be-fab1127be89f(("Stop")):::stop
+        b6a9ff1d-1469-4b82-bf3f-9db1544dc8a6["327 EPK vélemények rögzítése"]:::task
+        81d1c1a3-bf4c-4057-8d3d-11763ed93409{"Dokumentáció megfelelő?"}:::gateway
+        02e50adb-63c3-42e8-b826-c2642abb63ea{"Dokumentáció megfelelő?"}:::gateway
+        dc7b31ac-eb7d-43b3-90a9-ae45f07a5194{" "}:::gateway
+        df7df428-a5c0-4c59-818e-1143bc06e962{" "}:::gateway
+        5e02661c-e260-439a-b5d3-73cd08adcb0e{" "}:::gateway
+        7a0ee857-1f28-4d16-a1ae-7ecdb7b253d7{" "}:::gateway
+        da596148-dd9c-4f9a-8521-7efe0b92242d["324D EPK dokumentum átadása a DKÜ részére"]:::task
+        099ff4c2-9667-46fa-b717-7cde173a762e["325N NKOH EPK dokumentum vélemény rögzítése"]:::task
+        f3b4e199-5d42-4beb-9681-a9738c0c1c6d["325D DKÜ EPK dokumentum vélemény rögzítése"]:::task
+        e18ef498-5074-4081-a00c-d2dda2ab6439["325V VBÜ EPK dokumentum vélemény rögzítése"]:::task
+        2bbcbde9-2920-495c-949c-db4b00d11b54["328N EPK dokumentum javítása"]:::task
+        0e242335-a939-4145-adf0-03ca4e5f5374["328D EPK dokumentum javítása"]:::task
+        48be67b7-9d14-4f72-980c-f2808dd16f7a["328V EPK dokumentum javítása"]:::task
+        52541dc5-30ec-4c30-80dd-4020edc8431c["324N EPK dokumentum átadása az NKOH részére"]:::task
+        c9b8ddd9-ffcb-4f44-b039-ed279cfef965(("Start")):::start
+        b547d301-6493-4805-a76f-3c58b173c75e["Technikai Start"]:::task
+        684747aa-1181-45c7-8d41-a5c81a8ec27d["321 EPK dokumentáció összeállítása"]:::task
+        61c0c82b-2823-4957-92ea-1b601466f98d{"(+)"}:::gateway
+        17d70e37-2ae0-46e5-b75f-d7b3e85eb89e["322 EPK dokumentumok véleményezése"]:::task
+        7cdcfa3f-bba6-43f1-a824-f482bcd337d3{" "}:::gateway
+        92d615a5-e36c-4fc1-83b8-3f745aff5c2a{" "}:::gateway
+        643da550-8215-4294-aae8-e0804429c9dd["Technikai lépés"]:::task
+        b3a3ecee-04f2-413f-9168-bc5037cdc47d["324V EPK dokumentum átadása a VBÜ részére"]:::task
+        7d88e54f-323b-45b5-b52b-b0322f3ee79b{" "}:::gateway
+        ed98e4fb-311d-4530-a702-81b0757acaea["326 EPK megindítás tényének rögzítése"]:::task
+        b6a9ff1d-1469-4b82-bf3f-9db1544dc8a6 --> f935da51-cb66-46ad-a0be-fab1127be89f
+        621aedd2-1308-4dca-b6f4-e444b894cbc0 --> df7df428-a5c0-4c59-818e-1143bc06e962
+        643da550-8215-4294-aae8-e0804429c9dd --> 5e02661c-e260-439a-b5d3-73cd08adcb0e
+        5e02661c-e260-439a-b5d3-73cd08adcb0e --> 621aedd2-1308-4dca-b6f4-e444b894cbc0
+        df7df428-a5c0-4c59-818e-1143bc06e962 --> da596148-dd9c-4f9a-8521-7efe0b92242d
+        da596148-dd9c-4f9a-8521-7efe0b92242d --> f3b4e199-5d42-4beb-9681-a9738c0c1c6d
+        f3b4e199-5d42-4beb-9681-a9738c0c1c6d --> 81d1c1a3-bf4c-4057-8d3d-11763ed93409
+        e18ef498-5074-4081-a00c-d2dda2ab6439 --> 02e50adb-63c3-42e8-b826-c2642abb63ea
+        0e242335-a939-4145-adf0-03ca4e5f5374 --> dc7b31ac-eb7d-43b3-90a9-ae45f07a5194
+        dc7b31ac-eb7d-43b3-90a9-ae45f07a5194 --> 5e02661c-e260-439a-b5d3-73cd08adcb0e
+        df7df428-a5c0-4c59-818e-1143bc06e962 --> 52541dc5-30ec-4c30-80dd-4020edc8431c
+        52541dc5-30ec-4c30-80dd-4020edc8431c --> 099ff4c2-9667-46fa-b717-7cde173a762e
+        df7df428-a5c0-4c59-818e-1143bc06e962 --> b3a3ecee-04f2-413f-9168-bc5037cdc47d
+        b3a3ecee-04f2-413f-9168-bc5037cdc47d --> e18ef498-5074-4081-a00c-d2dda2ab6439
+        099ff4c2-9667-46fa-b717-7cde173a762e --> 7653d007-7965-4288-9f2e-0128b9508e4d
+        c9b8ddd9-ffcb-4f44-b039-ed279cfef965 --> b547d301-6493-4805-a76f-3c58b173c75e
+        b547d301-6493-4805-a76f-3c58b173c75e --> 684747aa-1181-45c7-8d41-a5c81a8ec27d
+        684747aa-1181-45c7-8d41-a5c81a8ec27d --> 61c0c82b-2823-4957-92ea-1b601466f98d
+        61c0c82b-2823-4957-92ea-1b601466f98d --> 17d70e37-2ae0-46e5-b75f-d7b3e85eb89e
+        7653d007-7965-4288-9f2e-0128b9508e4d -- "Megfelelő" --> 7a0ee857-1f28-4d16-a1ae-7ecdb7b253d7
+        7653d007-7965-4288-9f2e-0128b9508e4d -- "Javítás" --> 2bbcbde9-2920-495c-949c-db4b00d11b54
+        2bbcbde9-2920-495c-949c-db4b00d11b54 --> 92d615a5-e36c-4fc1-83b8-3f745aff5c2a
+        92d615a5-e36c-4fc1-83b8-3f745aff5c2a --> 5e02661c-e260-439a-b5d3-73cd08adcb0e
+        17d70e37-2ae0-46e5-b75f-d7b3e85eb89e --> 7cdcfa3f-bba6-43f1-a824-f482bcd337d3
+        7cdcfa3f-bba6-43f1-a824-f482bcd337d3 --> 643da550-8215-4294-aae8-e0804429c9dd
+        81d1c1a3-bf4c-4057-8d3d-11763ed93409 -- "Megfelelő" --> 7a0ee857-1f28-4d16-a1ae-7ecdb7b253d7
+        81d1c1a3-bf4c-4057-8d3d-11763ed93409 -- "Javítás" --> 0e242335-a939-4145-adf0-03ca4e5f5374
+        48be67b7-9d14-4f72-980c-f2808dd16f7a --> 7d88e54f-323b-45b5-b52b-b0322f3ee79b
+        7d88e54f-323b-45b5-b52b-b0322f3ee79b --> 5e02661c-e260-439a-b5d3-73cd08adcb0e
+        02e50adb-63c3-42e8-b826-c2642abb63ea -- "Megfelelő" --> 7a0ee857-1f28-4d16-a1ae-7ecdb7b253d7
+        02e50adb-63c3-42e8-b826-c2642abb63ea -- "Javítás" --> 48be67b7-9d14-4f72-980c-f2808dd16f7a
+        7a0ee857-1f28-4d16-a1ae-7ecdb7b253d7 --> ed98e4fb-311d-4530-a702-81b0757acaea
+        ed98e4fb-311d-4530-a702-81b0757acaea --> b6a9ff1d-1469-4b82-bf3f-9db1544dc8a6
+    end
